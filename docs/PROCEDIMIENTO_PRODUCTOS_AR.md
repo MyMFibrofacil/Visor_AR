@@ -61,7 +61,8 @@ realizada por el asistente.
 | PNG / JPG | Foto de referencia y vista previa | Recomendado: frente, lateral y perspectiva; indicar cuál usar como imagen del catálogo |
 
 **Paquete recomendado desde Fusion:** OBJ + F3D/F3Z + MTL/texturas si existen +
-medidas confirmadas + una foto o captura del producto armado. DXF opcional si
+identificación en Productos Chatbot + una foto o captura del producto armado.
+Las medidas se extraen y contrastan; confirmar manualmente solo faltantes o diferencias. DXF opcional si
 hay dudas sobre piezas, espesores o dimensiones. No hace falta generar GLB/USDZ:
 los preparamos como salida del proceso.
 
@@ -110,8 +111,43 @@ https://help.autodesk.com/view/fusion360/ENU/?contextId=MESH-SAVE-AS-MESH
 - Nombre de carpeta deseado, preferentemente derivado del código estable.
 
 El logo ya está centralizado. Solo hace falta entregarlo otra vez si cambia la marca.
-Para comenzar alcanza con un OBJ utilizable, medidas y referencia de orientación;
-los otros archivos ayudan a resolver inconsistencias sin repetir el trabajo.
+Para comenzar alcanza con un OBJ utilizable, identificación del producto y referencia
+de orientación. No pedir que se transcriban datos disponibles en las fuentes.
+Los otros archivos ayudan a resolver inconsistencias sin repetir el trabajo.
+
+### Extracción de datos: reducir la carga manual
+
+Fuente comercial verificada: [Productos Chatbot](https://docs.google.com/spreadsheets/d/15-MwPmN2j1vtM1xB-RFcRd_2UI74A2kHcfx-hPuAMdw/edit#gid=0), pestaña “Hoja 1”.
+Las columnas incluyen `codigo`, `nombre_ia`, `categoria`, `subcategoria`,
+`material_primario`, `espesor_mm_primario`, `material_secundario`,
+`espesor_mm_secundario`, `alto_cm`, `ancho_cm`, `profundidad_cm` y `foto`.
+La existencia de las columnas no garantiza que cada fila esté completa o actualizada.
+
+- Identificar el producto en la planilla y usar su `codigo` como vínculo estable.
+  Si solo se conoce el nombre, buscar candidatos y confirmar cuando haya ambigüedad.
+  No asignar automáticamente el código de un producto parecido.
+- Extraer nombre, código, categoría y subcategoría de esa fila. No volver a pedirlos
+  ni inventar clasificaciones cuando están vacías.
+- Usar materiales, espesores y foto de la fila cuando estén completos y correspondan
+  a la versión del diseño. Comprobar que el enlace de foto sea utilizable.
+- Convertir las dimensiones comerciales de cm a mm multiplicando por 10.
+- Medir el modelo 3D armado en sus ejes correctos, incluyendo las salientes, y
+  contrastarlo con las medidas comerciales de la planilla.
+- Usar el DXF para contrastar contornos y dimensiones de piezas. Un DXF de corte
+  con piezas desplegadas no permite deducir por sí solo las dimensiones del mueble
+  armado: depende de uniones, solapes, espesores y orientación del ensamblaje.
+- No confundir la envolvente del 3D con medidas nominales de catálogo. Si difieren,
+  determinar qué incluye cada fuente y consultar solo cuando no pueda resolverse.
+- Registrar el código, fila/hoja, fecha de lectura y procedencia de las medidas.
+
+La entrega habitual queda en: archivo de Fusion + OBJ + DXF si está disponible +
+foto de referencia si no hay una adecuada en la planilla + identificación suficiente
+para encontrar el producto. Informar unidad y versión del modelo sigue siendo útil.
+Las medidas manuales son un recurso para datos ausentes o discrepancias.
+
+Este criterio define el procedimiento de incorporación. La extracción de dimensiones
+geométricas existe en el conversor; el catálogo web aún no sincroniza automáticamente
+la planilla ni realiza por sí solo la asociación entre CAD y código comercial.
 
 ## 5. Preparación técnica del modelo
 

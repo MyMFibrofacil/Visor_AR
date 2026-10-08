@@ -1,5 +1,16 @@
 # Ficha para incorporar un producto al visor AR
 
+No es necesario completar manualmente datos presentes en Productos Chatbot o
+extraíbles del modelo. Los campos se completan durante la revisión, indicando su
+fuente. El usuario aporta los archivos y la identificación del producto; se consultan
+solo faltantes, correspondencias ambiguas y discrepancias.
+
+- Fuente comercial: Productos Chatbot, Hoja 1.
+- Fila o código identificado en la planilla:
+- Fecha de lectura de la planilla:
+- Categoría y subcategoría extraídas:
+- Fuente de las medidas (planilla / 3D / DXF / confirmación):
+
 - Código / SKU:
 - Nombre comercial:
 - Carpeta deseada (código en minúsculas y guiones):
