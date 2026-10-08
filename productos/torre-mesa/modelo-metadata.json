@@ -32,5 +32,13 @@
   "segmentos_bordes": 3412,
   "triangulos_bordes": 40944,
   "fuente_sha256": "db6cad9c80df3986c3b7e4123cb96cd45a11559aad5cb59154190b476c79b751",
-  "validacion_celular": "Pendiente"
+  "validacion_celular": "AR con cámara funcionó, confirmado por el usuario",
+  "prueba_ar": {
+    "resultado": "Funcionó",
+    "fuente": "Confirmación del usuario",
+    "fecha_confirmacion": "2026-10-08",
+    "dispositivo": null,
+    "sistema_operativo": null,
+    "navegador": null
+  }
 }

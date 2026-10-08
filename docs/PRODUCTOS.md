@@ -41,7 +41,8 @@ Los metadatos y modelos de salida quedan en la carpeta del producto.
 Conserva 12 cuerpos y contornos negros. Ancho nominal 398 mm, altura real
 905,972 mm (906 en pantalla), profundidad nominal 470 mm. La envolvente completa
 incluye salientes, según `modelo-metadata.json`. El ajuste X es 0,995 respecto al OBJ.
-Se mantiene el diseño elegido, sin aro de órbita. La prueba AR con cámara real
-sigue pendiente; cargar el visor web no confirma esa prueba.
+Se mantiene el diseño elegido, sin aro de órbita. La prueba AR con cámara real funcionó, según confirmación del usuario recibida
+el 8 de octubre de 2026. No se informó dispositivo, sistema operativo ni navegador;
+esta confirmación no acredita pruebas separadas en Android e iPhone.
 
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.

@@ -40,8 +40,11 @@ requieren preparación adicional; no se convierten automáticamente con el conve
     y comprobamos el enlace público, descarga de modelos y controles del visor.
 
 **Estado de verificación:** el visor web y la publicación están comprobados.
-La prueba física de AR con cámara en Android e iPhone sigue pendiente.
-No considerar esa prueba realizada por haber visto el modelo en la computadora.
+La prueba física de AR con cámara funcionó, según confirmación del usuario
+recibida el 8 de octubre de 2026. No se informó dispositivo, sistema operativo
+ni navegador. No se registraron resultados separados para Android e iPhone.
+La confirmación corresponde a la prueba del usuario, no a una prueba de cámara
+realizada por el asistente.
 
 ## 2. Qué archivos entregar para otro producto
 
