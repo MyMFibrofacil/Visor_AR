@@ -2,6 +2,8 @@
   {
     "carpeta": "torre-mesa",
     "nombre": "Torre Mesa",
+    "categoria": "Montessori",
+    "subcategoria": "Torres",
     "imagen": "modelo.png"
   }
 ]

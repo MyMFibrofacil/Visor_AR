@@ -11,7 +11,11 @@ ver [el procedimiento completo](PROCEDIMIENTO_PRODUCTOS_AR.md) y
    descripción, medidas reales en mm, apariencia, archivos y cámara inicial.
 4. Colocar GLB, USDZ y vista previa en esa misma carpeta. Mantener escala real
    en metros, eje Y vertical y apoyo en Y=0.
-5. Agregar una entrada en `productos/catalogo.json` con carpeta, nombre e imagen.
+5. Agregar una entrada en `productos/catalogo.json` con carpeta, nombre, imagen,
+   categoría (`categoria`) y subcategoría (`subcategoria`) tomadas de la planilla
+   de productos. Incluir solamente productos con modelos AR disponibles.
+   El catálogo genera sus filtros a partir de estas entradas; los campos de
+   clasificación vacíos no generan opciones. La planilla no se sincroniza automáticamente.
 6. Ejecutar `npm run dev`, revisar catálogo, carga, medidas y botón de vista inicial.
    Probar AR con cámara en Android e iPhone compatibles antes de darlo por validado.
 7. Enviar los cambios a `main` y verificar la publicación de GitHub Pages.
