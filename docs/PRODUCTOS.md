@@ -1,5 +1,9 @@
 # Agregar y mantener productos
 
+Guía rápida. Para la recopilación del proceso, formatos de entrega y verificaciones,
+ver [el procedimiento completo](PROCEDIMIENTO_PRODUCTOS_AR.md) y
+[la ficha de entrega](PLANTILLA_ENTREGA_PRODUCTO.md).
+
 1. Crear `productos/<codigo-o-nombre>/`. Usar minúsculas y guiones, sin espacios.
 2. Copiar el pequeño `index.html` de Torre Mesa: contiene la entrada al visor común.
    Actualizar título y descripción iniciales para el producto nuevo.

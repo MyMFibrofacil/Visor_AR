@@ -46,3 +46,7 @@ El flujo de GitHub Pages se ejecuta al enviar cambios a `main`.
 - Torre Mesa: https://mymfibrofacil.github.io/Visor_AR/productos/torre-mesa/
 
 Ver [cómo agregar productos](docs/PRODUCTOS.md).
+
+Procedimiento completo y formatos de exportación: [PROCEDIMIENTO_PRODUCTOS_AR.md](docs/PROCEDIMIENTO_PRODUCTOS_AR.md).
+
+Ficha reutilizable para cada alta: [PLANTILLA_ENTREGA_PRODUCTO.md](docs/PLANTILLA_ENTREGA_PRODUCTO.md).
