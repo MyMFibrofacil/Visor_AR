@@ -1,0 +1,10 @@
+{
+  "name": "visor-productos-3d",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/publicar.mjs",
+    "dev": "node scripts/servidor.mjs"
+  }
+}

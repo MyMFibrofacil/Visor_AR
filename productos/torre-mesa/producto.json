@@ -1,0 +1,32 @@
+{
+  "nombre": "Torre Mesa",
+  "descripcion": "Torre Mesa de MDF con plataforma, escalón y barra superior",
+  "medidas_mm": {
+    "ancho": 398,
+    "alto": 905.972,
+    "profundidad": 470
+  },
+  "apariencia": "La apariencia del MDF es aproximada.",
+  "archivos": {
+    "glb": "modelo.glb",
+    "usdz": "modelo.usdz",
+    "poster": "modelo.png"
+  },
+  "camara": {
+    "orbita": "35deg 75deg 2.1m",
+    "objetivo": "0m 0.453m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 1m",
+    "maximo": "auto 100deg 4m"
+  },
+  "conversion": {
+    "unidad_obj_metros": 0.01,
+    "escala_ejes": [
+      0.995,
+      1,
+      1
+    ],
+    "radio_borde_metros": 0.00055,
+    "angulo_borde_grados": 35
+  }
+}
