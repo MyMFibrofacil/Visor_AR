@@ -120,9 +120,9 @@ Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/torre-regulable/
 
 ## Cocina Pocket
 
-Se incorpora el 9 de octubre de 2026 en `productos/cocina-pocket/`. La ficha se
-clasifica en Infanto Juvenil / Juegos de cocina; no se muestra código comercial
-porque no se encontró uno confirmado. La envolvente del OBJ mide 600,02 ×
+Se incorpora el 9 de octubre de 2026 en `productos/cocina-pocket/`, código
+`F9JS_COCINA_POCKET`, clasificada en Productos Chatbot, Hoja 1, fila 96 como
+Juego Simbolico / Linea Pocket. La envolvente del OBJ mide 600,02 ×
 881,02 × 353,684 mm (ancho × alto × profundidad).
 
 El modelo incluye 31 cuerpos y 58.670 triángulos. Conserva las asignaciones de

@@ -1,7 +1,8 @@
 {
   "nombre": "Cocina Pocket",
-  "categoria": "Infanto Juvenil",
-  "subcategoria": "Juegos de cocina",
+  "codigo": "F9JS_COCINA_POCKET",
+  "categoria": "Juego Simbolico",
+  "subcategoria": "Linea Pocket",
   "descripcion": "Cocina infantil Pocket con materiales asignados en Fusion 360.",
   "medidas_mm": { "ancho": 600.02, "alto": 881.02, "profundidad": 353.6844 },
   "apariencia": "Materiales del OBJ de Fusion 360 conservados por pieza; tonos MDF y pino tomados visualmente del render de Fusion.",
