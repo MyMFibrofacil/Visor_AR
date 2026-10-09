@@ -33,8 +33,9 @@ def main():
     resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"], conversion["escala_ejes"])
     escena, cantidad_bordes = agregar_bordes(cuerpos, conversion["radio_borde_metros"], conversion["angulo_borde_grados"])
     movimiento = config.get("movimiento")
-    exportar_glb(escena, destino / config["archivos"]["glb"], movimiento)
-    exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento)
+    material = config.get("material")
+    exportar_glb(escena, destino / config["archivos"]["glb"], movimiento, material)
+    exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento, material)
     resumen.update(dimensions_confirmadas_mm=config["medidas_mm"],
         cuerpos=len(cuerpos), triangulos=sum(len(c["posiciones"]) // 3 for c in cuerpos.values()),
         material=config["apariencia"],

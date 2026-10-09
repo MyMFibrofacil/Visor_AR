@@ -4,16 +4,20 @@ import struct
 import numpy as np
 
 COLOR_MDF = [0.52, 0.34, 0.18]
+COLOR_PINO = [0.40, 0.23, 0.12]
 
 
-def exportar_glb(cuerpos, destino, movimiento=None):
+def exportar_glb(cuerpos, destino, movimiento=None, material=None):
     """Guarda los cuerpos, conservando sus normales y separaciones originales."""
+    material = material or {}
+    nombre_material = material.get("nombre", "MDF aproximado")
+    color_material = material.get("color", COLOR_MDF)
     documento = {"asset": {"version": "2.0", "generator": "Visor productos AR"},
                  "scene": 0, "scenes": [{"nodes": []}], "nodes": [], "meshes": [],
                  "accessors": [], "bufferViews": [],
-                 "materials": [{"name": "MDF aproximado", "doubleSided": True,
-                     "pbrMetallicRoughness": {"baseColorFactor": COLOR_MDF + [1],
-                         "metallicFactor": 0, "roughnessFactor": 0.88}},
+                 "materials": [{"name": nombre_material, "doubleSided": True,
+                     "pbrMetallicRoughness": {"baseColorFactor": color_material + [1],
+                         "metallicFactor": 0, "roughnessFactor": material.get("roughness", 0.88)}},
                      {"name": "Bordes negros", "doubleSided": True,
                       "pbrMetallicRoughness": {"baseColorFactor": [0.001, 0.001, 0.001, 1],
                       "metallicFactor": 0, "roughnessFactor": 1}}]}

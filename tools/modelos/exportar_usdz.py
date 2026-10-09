@@ -6,8 +6,11 @@ import tempfile
 from pathlib import Path
 
 
-def exportar_usdz(cuerpos, destino, movimiento=None):
+def exportar_usdz(cuerpos, destino, movimiento=None, material_config=None):
     """Escribe cuerpos en metros, eje Y vertical y material mate."""
+    material_config = material_config or {}
+    nombre_material = material_config.get("nombre", "MDF aproximado")
+    color_material = material_config.get("color", COLOR_MDF)
     carpeta_temporal = Path(tempfile.mkdtemp(prefix="producto-usd-"))
     temporal = carpeta_temporal / "producto.usdc"
     stage = Usd.Stage.CreateNew(str(temporal))
@@ -22,11 +25,11 @@ def exportar_usdz(cuerpos, destino, movimiento=None):
         stage.SetInterpolationType(Usd.InterpolationTypeHeld)
     raiz = UsdGeom.Xform.Define(stage, "/Producto")
     stage.SetDefaultPrim(raiz.GetPrim())
-    material = UsdShade.Material.Define(stage, "/Producto/Looks/MDF")
-    shader = UsdShade.Shader.Define(stage, "/Producto/Looks/MDF/Shader")
+    material = UsdShade.Material.Define(stage, f"/Producto/Looks/{nombre_material.replace(' ', '_')}")
+    shader = UsdShade.Shader.Define(stage, f"/Producto/Looks/{nombre_material.replace(' ', '_')}/Shader")
     shader.CreateIdAttr("UsdPreviewSurface")
-    shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*COLOR_MDF))
-    shader.CreateInput("roughness", Sdf.ValueTypeNames.Float).Set(0.88)
+    shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*color_material))
+    shader.CreateInput("roughness", Sdf.ValueTypeNames.Float).Set(material_config.get("roughness", 0.88))
     shader.CreateInput("metallic", Sdf.ValueTypeNames.Float).Set(0.0)
     material.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
     material_bordes = UsdShade.Material.Define(stage, '/Producto/Looks/Bordes')

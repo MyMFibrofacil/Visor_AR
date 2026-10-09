@@ -5,7 +5,8 @@
   "subcategoria": "Torres",
   "descripcion": "Torre de aprendizaje Montessori regulable con plataforma móvil de cinco niveles",
   "medidas_mm": { "ancho": 398, "alto": 880, "profundidad": 434.21 },
-  "apariencia": "La apariencia del fibrofacil es aproximada.",
+  "apariencia": "Pino natural. El tono del modelo es aproximado.",
+  "material": { "nombre": "Pino natural", "color": [0.40, 0.23, 0.12], "roughness": 0.88 },
   "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
   "camara": {
     "orbita": "35deg 70deg 2m",
