@@ -1,0 +1,38 @@
+{
+  "dimensiones_modelo_mm": [
+    299.99999999999994,
+    380.0,
+    328.0
+  ],
+  "dimensiones_originales_mm": [
+    299.99999999999994,
+    380.0,
+    328.0
+  ],
+  "origen_original_m": [
+    0.5441528600000001,
+    -0.0353,
+    0.08968231000000002
+  ],
+  "escala_obj_a_metros": 0.01,
+  "escala_ejes": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
+  "dimensions_confirmadas_mm": {
+    "ancho": 300,
+    "alto": 380,
+    "profundidad": 328
+  },
+  "cuerpos": 4,
+  "triangulos": 1712,
+  "material": "La apariencia del MDF es aproximada.",
+  "segmentos_bordes": 832,
+  "triangulos_bordes": 9984,
+  "fuente_sha256": "1c7d833dd8aefa33ce2cede778c35b480398b64e05a591dca24af1ba9ae68b8e",
+  "grupo_movil": null,
+  "niveles_movimiento": 0,
+  "validacion_celular": "Pendiente"
+}

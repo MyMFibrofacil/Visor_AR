@@ -75,6 +75,9 @@ export function prepararCatalogo(raiz, productos) {
     imagen.alt = producto.nombre;
     imagen.loading = 'lazy';
     imagen.classList.replace('object-cover', 'object-contain');
+    if (Number.isFinite(producto.imagen_escala) && producto.imagen_escala > 0) {
+      imagen.style.transform = `scale(${producto.imagen_escala})`;
+    }
     titulo.textContent = producto.nombre;
     tarjeta.addEventListener('click', () => { location.href = base.href; });
     tarjeta.addEventListener('keydown', (evento) => {

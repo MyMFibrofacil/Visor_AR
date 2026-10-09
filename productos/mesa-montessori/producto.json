@@ -1,0 +1,18 @@
+{
+  "nombre": "Mesa Montessori",
+  "codigo": "FC0003080001",
+  "categoria": "Montessori",
+  "subcategoria": "Mesas y sillas",
+  "descripcion": "Mesa Montessori de MDF",
+  "medidas_mm": { "ancho": 620.491, "alto": 421.15, "profundidad": 408 },
+  "apariencia": "La apariencia del MDF es aproximada.",
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "camara": {
+    "orbita": "35deg 65deg 1.7m",
+    "objetivo": "0m 0.21m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 0.6m",
+    "maximo": "auto 100deg 3m"
+  },
+  "conversion": { "unidad_obj_metros": 0.01, "escala_ejes": [1, 1, 1], "radio_borde_metros": 0.00055, "angulo_borde_grados": 35 }
+}

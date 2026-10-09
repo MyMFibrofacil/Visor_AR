@@ -4,12 +4,11 @@ export function iniciarControles(modelo, camara, apariencia) {
   const ar = document.querySelector('#ar-launch-btn');
   const volver = document.querySelector('#back-to-catalog');
   const inicio = new URL('../../', location.href);
-  const orbitaInicial = modelo.getAttribute('camera-orbit');
   const mostrarNota = (mensaje) => { nota.textContent = `${apariencia} ${mensaje}`; };
 
   volver.addEventListener('click', () => { location.href = inicio.href; });
   document.querySelector('#reset-cam-btn').addEventListener('click', () => {
-    modelo.cameraOrbit = orbitaInicial;
+    modelo.cameraOrbit = modelo.getAttribute('camera-orbit');
     modelo.cameraTarget = camara.objetivo;
     modelo.fieldOfView = camara.campo;
     modelo.resetTurntableRotation();

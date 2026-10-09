@@ -1,0 +1,32 @@
+{
+  "nombre": "Mesa y 2 sillas Montessori",
+  "codigo": "CC0099990005",
+  "categoria": "Montessori",
+  "subcategoria": "Mesas y sillas",
+  "descripcion": "Combo Montessori de una mesa y dos sillas de MDF",
+  "medidas_mm": { "ancho": 700, "alto": 421.15, "profundidad": 408 },
+  "apariencia": "La apariencia del MDF es aproximada.",
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "camara": {
+    "orbita": "35deg 65deg 2.1m",
+    "objetivo": "0m 0.21m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 0.8m",
+    "maximo": "auto 100deg 3.5m"
+  },
+  "conversion": { "unidad_obj_metros": 0.01, "escala_ejes": [1, 1, 1], "radio_borde_metros": 0.00055, "angulo_borde_grados": 35 },
+  "presentaciones": [
+    {
+      "nombre": "Dos sillas guardadas",
+      "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+      "orbita": "35deg 65deg 2.1m",
+      "medidas_mm": { "ancho": 700, "alto": 421.15, "profundidad": 408 }
+    },
+    {
+      "nombre": "Una silla afuera",
+      "archivos": { "glb": "modelo-una-afuera.glb", "usdz": "modelo-una-afuera.usdz", "poster": "modelo-una-afuera.png" },
+      "orbita": "35deg 65deg 3m",
+      "medidas_mm": { "ancho": 1120, "alto": 421.15, "profundidad": 408 }
+    }
+  ]
+}

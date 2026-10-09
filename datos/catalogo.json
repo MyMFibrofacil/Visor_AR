@@ -26,5 +26,29 @@
     "categoria": "Montessori",
     "subcategoria": "Torres",
     "imagen": "modelo.png"
+  },
+  {
+    "carpeta": "mesa-montessori",
+    "nombre": "Mesa Montessori",
+    "categoria": "Montessori",
+    "subcategoria": "Mesas y sillas",
+    "imagen": "modelo.png",
+    "imagen_escala": 2.4
+  },
+  {
+    "carpeta": "silla-montessori",
+    "nombre": "Silla Montessori",
+    "categoria": "Montessori",
+    "subcategoria": "Mesas y sillas",
+    "imagen": "modelo.png",
+    "imagen_escala": 3.3
+  },
+  {
+    "carpeta": "mesa-y-2-sillas-montessori",
+    "nombre": "Mesa y 2 sillas Montessori",
+    "categoria": "Montessori",
+    "subcategoria": "Mesas y sillas",
+    "imagen": "modelo.png",
+    "imagen_escala": 2.8
   }
 ]

@@ -116,4 +116,26 @@ dispositivos objetivo antes de darla por validada.
 
 Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/torre-regulable/
 
+## Mesa, silla y combo Montessori
+
+Se incorporan como tres fichas independientes: Mesa Montessori
+(`FC0003080001`), Silla Montessori (`FC0003080004`) y Mesa y 2 sillas
+Montessori (`CC0099990005`). Los OBJ originales están en la carpeta de diseño
+`Mesa y Sillas Montessori`, fuera del repositorio público.
+
+Las medidas provienen de la envolvente de cada modelo OBJ en centímetros:
+mesa 620,491 × 421,15 × 408 mm; silla 300 × 380 × 328 mm; combo guardado
+700 × 421,15 × 408 mm. El combo con una silla afuera ocupa
+1120 × 421,15 × 408 mm. Son medidas de la geometría, no cotas comerciales.
+
+El combo permite elegir ambas sillas guardadas o una afuera antes de abrir AR.
+Cada posición usa su propio GLB y USDZ para que la elección se conserve en
+Android y iPhone. La segunda posición se preparó a partir del OBJ del conjunto:
+los grupos `Cuerpo38` a `Cuerpo41` de la silla derecha se trasladaron 42 cm
+en X, sin modificar las otras ocho piezas. Se puede regenerar con
+`tools/modelos/generar_combo_montessori.py`. La posición se cotejó con
+`Mesa y Sillas 2.png`; no existe un OBJ original exportado en esa posición.
+
+La comprobación con cámara física en Android y iPhone queda pendiente.
+
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.

@@ -1,4 +1,6 @@
 /** Inserta los datos reales en la ficha visual sin reconstruir su diseño. */
+import { mostrarMedidas } from './shared/medidas.js';
+
 export function cargarVistaProducto(config) {
   const modelo = document.querySelector('#modelo');
   const titulo = document.querySelector('h1');
@@ -17,13 +19,7 @@ export function cargarVistaProducto(config) {
     `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.`;
   document.querySelector('#descripcion-producto').textContent =
     'Giralo para explorar sus detalles desde todos los ángulos.';
-  for (const [clave, valor] of Object.entries(config.medidas_mm)) {
-    const centimetros = valor / 10;
-    const medida = Number.isInteger(centimetros) ? centimetros : centimetros.toFixed(1).replace('.', ',');
-    for (const elemento of document.querySelectorAll(`[data-medida="${clave}"]`)) {
-      elemento.textContent = `${medida} cm`;
-    }
-  }
+  mostrarMedidas(config.medidas_mm);
   modelo.setAttribute('alt', config.descripcion);
   modelo.setAttribute('poster', new URL(config.archivos.poster, location.href).href);
   modelo.setAttribute('ios-src', new URL(config.archivos.usdz, location.href).href);
