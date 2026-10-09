@@ -24,8 +24,8 @@ function agruparProductos(productos) {
 export function prepararCatalogo(raiz, productos) {
   const listaCategorias = raiz.querySelector('[id$="categoryHierarchy"]');
   const grilla = raiz.querySelector('[id$="productsGrid"]');
-  const prototipoCategoria = listaCategorias.querySelector('.category-group').cloneNode(true);
-  const prototipoTarjeta = grilla.querySelector('.product-card').cloneNode(true);
+  const prototipoCategoria = listaCategorias.querySelector('template[data-category-template]').content.querySelector('.category-group').cloneNode(true);
+  const prototipoTarjeta = grilla.querySelector('template[data-product-template]').content.querySelector('.product-card').cloneNode(true);
   const categorias = agruparProductos(productos);
   listaCategorias.replaceChildren();
   grilla.replaceChildren();

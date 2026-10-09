@@ -1,6 +1,6 @@
 /** Entrada del catálogo: carga productos e inicia las dos vistas responsivas. */
 import { leerJson } from './shared/archivos.js';
-import { prepararCatalogo } from './vista-catalogo.js';
+import { prepararCatalogo } from './vista-catalogo.js?v=20261009';
 import { iniciarInteraccionesCatalogo } from './interacciones-catalogo.js';
 
 try {
