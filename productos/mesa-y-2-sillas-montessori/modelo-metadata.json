@@ -20,6 +20,7 @@
     1.0,
     1.0
   ],
+  "rotacion_y_grados": 0,
   "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
   "dimensions_confirmadas_mm": {
     "ancho": 700,
@@ -29,10 +30,59 @@
   "cuerpos": 12,
   "triangulos": 5516,
   "material": "La apariencia del MDF es aproximada.",
+  "materiales_obj": {
+    "Tablero_MDF": {
+      "nombre_exportado": "Tablero_MDF",
+      "caras": 5516
+    }
+  },
+  "materiales_por_normal": {},
+  "materiales_por_pieza": {
+    "Cuerpo34": {
+      "Tablero_MDF": 136
+    },
+    "Cuerpo35": {
+      "Tablero_MDF": 96
+    },
+    "Cuerpo36": {
+      "Tablero_MDF": 930
+    },
+    "Cuerpo37": {
+      "Tablero_MDF": 930
+    },
+    "Cuerpo38": {
+      "Tablero_MDF": 68
+    },
+    "Cuerpo39": {
+      "Tablero_MDF": 60
+    },
+    "Cuerpo40": {
+      "Tablero_MDF": 788
+    },
+    "Cuerpo41": {
+      "Tablero_MDF": 796
+    },
+    "Cuerpo42": {
+      "Tablero_MDF": 788
+    },
+    "Cuerpo43": {
+      "Tablero_MDF": 68
+    },
+    "Cuerpo44": {
+      "Tablero_MDF": 60
+    },
+    "Cuerpo45": {
+      "Tablero_MDF": 796
+    }
+  },
   "segmentos_bordes": 2648,
   "triangulos_bordes": 31776,
   "fuente_sha256": "f70aeed0f444ae5a5019957929c10ec662eacf8f70ff16cb37aa1d7b790bc9e9",
   "grupo_movil": null,
   "niveles_movimiento": 0,
+  "animaciones": [
+    "Silla izquierda",
+    "Silla derecha"
+  ],
   "validacion_celular": "Pendiente"
 }

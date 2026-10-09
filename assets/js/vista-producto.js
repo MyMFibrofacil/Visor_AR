@@ -19,6 +19,11 @@ export function cargarVistaProducto(config) {
     document.querySelector('#control-movimiento-individual').classList.add('hidden');
     document.querySelector('#control-movimiento-multiple').classList.remove('hidden');
   }
+  if (config.movimiento_sillas) {
+    document.querySelector('#control-movimiento-sillas').classList.remove('hidden');
+    document.querySelector('#control-presentaciones').classList.add('hidden');
+    document.querySelector('#control-movimiento').classList.add('hidden');
+  }
   const codigo = document.querySelector('#codigo-producto');
   if (config.codigo) {
     codigo.textContent = `• Código ${config.codigo}`;
@@ -32,7 +37,9 @@ export function cargarVistaProducto(config) {
   mostrarMedidas(config.medidas_mm);
   modelo.setAttribute('alt', config.descripcion);
   modelo.setAttribute('poster', new URL(config.archivos.poster, location.href).href);
-  modelo.setAttribute('ios-src', new URL(config.archivos.usdz, location.href).href);
+  if (!config.movimiento_sillas) {
+    modelo.setAttribute('ios-src', new URL(config.archivos.usdz, location.href).href);
+  }
   for (const [atributo, clave] of [
     ['camera-orbit', 'orbita_plantilla'], ['camera-target', 'objetivo'],
     ['field-of-view', 'campo'], ['min-camera-orbit', 'minimo'],

@@ -128,7 +128,12 @@ Juego Simbolico / Linea Pocket. La envolvente del OBJ mide 600,02 ×
 El modelo incluye 31 cuerpos y 58.670 triángulos. Conserva las asignaciones de
 materiales exportadas desde Fusion 360; los tonos de Tablero MDF y Pino se
 aproximaron visualmente desde el render de Fusion porque el MTL los exportó en
-negro. El visor publica GLB y USDZ, y la imagen de Fusion como portada.
+negro. El fondo de alzada conserva su frente blanco y tiene MDF en la cara
+trasera. El visor publica GLB y USDZ, y la imagen de Fusion como portada.
+
+El visor permite seleccionar y controlar con una barra cada movimiento: puerta
+del horno, puerta ciega, puerta de alzada con su frente y tirador, perillas,
+canillas y grifo. Los contornos generados se mueven junto con cada pieza.
 
 Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/cocina-pocket/
 
@@ -153,5 +158,23 @@ en X, sin modificar las otras ocho piezas. Se puede regenerar con
 `Mesa y Sillas 2.png`; no existe un OBJ original exportado en esa posición.
 
 La comprobación con cámara física en Android y iPhone queda pendiente.
+
+## Mesa Sensorial
+
+Incorporada el 9 de octubre de 2026 en `productos/mesa-sensorial/`, código
+`FC0003080002`. Identidad y clasificación leídas de Productos Chatbot,
+Hoja 1, fila 49: Montessori / Mesas y Sillas; MDF de 18 mm.
+
+La planilla registraba 530 × 460 × 730 mm (ancho × alto × profundidad). El usuario
+confirmó usar la altura del OBJ, 488 mm, y pidió actualizar el dato comercial:
+Hoja 1, celda L49, ahora 48,8 cm. La geometría del OBJ mide 730 × 488 × 530 mm
+en sus ejes X/Y/Z; una rotación de 90° alrededor de Y alinea el ancho y la
+profundidad con la ficha sin deformar el modelo. Se conservan los 13 grupos y
+los materiales Tablero_MDF y ABS_(blanco); el MTL exportó MDF negro, por lo que
+se usa la apariencia aproximada MDF del conversor.
+
+La vista previa proviene de la imagen entregada junto con el F3D, OBJ, MTL y DXF.
+El visor incorpora un control conjunto para elevar ambas tapas de batea 120 mm
+en vertical, al mismo tiempo y sin girar. Los archivos de diseño originales permanecen fuera del sitio público.
 
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.

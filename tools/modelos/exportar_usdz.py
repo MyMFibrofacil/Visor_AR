@@ -19,7 +19,11 @@ def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=N
     fps = 24
     if movimientos:
         stage.SetStartTimeCode(0)
-        stage.SetEndTimeCode(max(m["duracion_segundos"] for m in movimientos) * fps)
+        duracion_maxima = max(
+            item["duracion_segundos"] + item["duracion_segundos"] /
+            (len(articulacion.get("keyframes_grados", articulacion.get("desplazamientos_metros"))) - 1)
+            for item in movimientos for articulacion in item["articulaciones"])
+        stage.SetEndTimeCode(duracion_maxima * fps)
         stage.SetTimeCodesPerSecond(fps)
         stage.SetInterpolationType(Usd.InterpolationTypeLinear)
     elif movimiento:
@@ -76,20 +80,32 @@ def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=N
             identificador = Tf.MakeValidIdentifier(nombre)
             ruta_pivote = (f"/Producto/Movimiento_{indice_movimiento}_"
                            f"Articulacion_{indice_articulacion}_{identificador}")
-            pivote = articulacion["pivote_metros"]
             xform_pivote = UsdGeom.Xform.Define(stage, ruta_pivote)
-            xform_pivote.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(
-                Gf.Vec3d(*pivote))
-            rotacion = getattr(xform_pivote, f"AddRotate{articulacion['eje']}Op")(
-                UsdGeom.XformOp.PrecisionFloat)
-            grados = articulacion["keyframes_grados"]
-            for indice, angulo in enumerate(grados):
-                tiempo = item["duracion_segundos"] * indice / (len(grados) - 1) * fps
-                rotacion.Set(float(angulo), Usd.TimeCode(tiempo))
-            ruta_grupo = f"{ruta_pivote}/Pieza_{indice_cuerpo}_{identificador}"
-            grupo = UsdGeom.Xform.Define(stage, ruta_grupo)
-            grupo.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(
-                Gf.Vec3d(*[-valor for valor in pivote]))
+            if "keyframes_grados" in articulacion:
+                pivote = articulacion["pivote_metros"]
+                xform_pivote.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(Gf.Vec3d(*pivote))
+                rotacion = getattr(xform_pivote, f"AddRotate{articulacion['eje']}Op")(
+                    UsdGeom.XformOp.PrecisionFloat)
+                valores = articulacion["keyframes_grados"]
+                for indice, angulo in enumerate(valores):
+                    tiempo = item["duracion_segundos"] * indice / (len(valores) - 1) * fps
+                    rotacion.Set(float(angulo), Usd.TimeCode(tiempo))
+                duracion_final = item["duracion_segundos"] + item["duracion_segundos"] / (len(valores) - 1)
+                rotacion.Set(float(valores[-1]), Usd.TimeCode(duracion_final * fps))
+                ruta_grupo = f"{ruta_pivote}/Pieza_{indice_cuerpo}_{identificador}"
+                grupo = UsdGeom.Xform.Define(stage, ruta_grupo)
+                grupo.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(
+                    Gf.Vec3d(*[-valor for valor in pivote]))
+            else:
+                grupo = xform_pivote
+                translate = grupo.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble)
+                valores = articulacion["desplazamientos_metros"]
+                for indice, vector in enumerate(valores):
+                    tiempo = item["duracion_segundos"] * indice / (len(valores) - 1) * fps
+                    translate.Set(Gf.Vec3d(*vector), Usd.TimeCode(tiempo))
+                duracion_final = item["duracion_segundos"] + item["duracion_segundos"] / (len(valores) - 1)
+                translate.Set(Gf.Vec3d(*valores[-1]), Usd.TimeCode(duracion_final * fps))
+                ruta_grupo = ruta_pivote
         else:
             ruta_grupo = f"/Producto/Pieza_{indice_cuerpo}_{Tf.MakeValidIdentifier(nombre)}"
             grupo = UsdGeom.Xform.Define(stage, ruta_grupo)

@@ -1,0 +1,43 @@
+{
+  "nombre": "Mesa Sensorial",
+  "codigo": "FC0003080002",
+  "categoria": "Montessori",
+  "subcategoria": "Mesas y Sillas",
+  "descripcion": "Mesa Sensorial Montessori de MDF.",
+  "medidas_mm": { "ancho": 530, "alto": 488, "profundidad": 730 },
+  "apariencia": "La apariencia del MDF es aproximada; las piezas blancas se representan como ABS blanco.",
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1351" },
+  "camara": {
+    "orbita": "35deg 65deg 1.7m",
+    "objetivo": "0m 0.244m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 0.6m",
+    "maximo": "auto 100deg 3m"
+  },
+  "conversion": {
+    "unidad_obj_metros": 0.01,
+    "escala_ejes": [1, 1, 1],
+    "rotacion_y_grados": 90,
+    "radio_borde_metros": 0.00055,
+    "angulo_borde_grados": 35
+  },
+  "movimientos": [
+    {
+      "nombre_animacion": "Ambas tapas de bateas",
+      "descripcion": "Sube ambas tapas 12 cm en vertical, al mismo tiempo.",
+      "inicio": "Cerradas",
+      "fin": "Elevadas 12 cm",
+      "duracion_segundos": 1,
+      "articulaciones": [
+        {
+          "piezas": ["Tapa Batea 1"],
+          "desplazamientos_obj": [[0, 0, 0], [0, 12, 0]]
+        },
+        {
+          "piezas": ["Tapa Batea 2"],
+          "desplazamientos_obj": [[0, 0, 0], [0, 12, 0]]
+        }
+      ]
+    }
+  ]
+}

@@ -43,9 +43,13 @@ def main():
         config.get("materiales"), config.get("material"))
     resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"],
         conversion["escala_ejes"], conversion.get("rotacion_y_grados", 0))
-    movimientos = preparar_movimientos(config.get("movimientos"),
+    movimientos_config = config.get("movimientos")
+    if movimientos_config is None and config.get("movimiento_sillas"):
+        movimientos_config = config["movimiento_sillas"].get("movimientos")
+    movimientos = preparar_movimientos(movimientos_config,
         conversion["unidad_obj_metros"], resumen["origen_original_m"],
-        resumen["escala_ejes"], cuerpos)
+        resumen["escala_ejes"], cuerpos,
+        conversion.get("rotacion_y_grados", 0))
     escena, cantidad_bordes = agregar_bordes(cuerpos, conversion["radio_borde_metros"], conversion["angulo_borde_grados"])
     movimiento = config.get("movimiento")
     material_global = config.get("material")

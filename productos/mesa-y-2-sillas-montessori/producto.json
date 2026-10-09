@@ -15,18 +15,32 @@
     "maximo": "auto 100deg 3.5m"
   },
   "conversion": { "unidad_obj_metros": 0.01, "escala_ejes": [1, 1, 1], "radio_borde_metros": 0.00055, "angulo_borde_grados": 35 },
-  "presentaciones": [
-    {
-      "nombre": "Dos sillas guardadas",
-      "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1324" },
-      "orbita": "35deg 65deg 2.1m",
-      "medidas_mm": { "ancho": 700, "alto": 421.15, "profundidad": 408 }
-    },
-    {
-      "nombre": "Una silla afuera",
-      "archivos": { "glb": "modelo-una-afuera.glb", "usdz": "modelo-una-afuera.usdz", "poster": "modelo-una-afuera.png" },
-      "orbita": "35deg 65deg 3m",
-      "medidas_mm": { "ancho": 1120, "alto": 421.15, "profundidad": 408 }
-    }
-  ]
+  "movimiento_sillas": {
+    "desplazamiento_maximo_metros": 0.42,
+    "duracion_segundos": 1,
+    "movimientos": [
+      {
+        "nombre_animacion": "Silla izquierda",
+        "descripcion": "La silla izquierda se desliza hasta salir de la mesa.",
+        "inicio": "Adentro",
+        "fin": "Afuera",
+        "duracion_segundos": 1,
+        "articulaciones": [{
+          "piezas": ["Cuerpo42", "Cuerpo43", "Cuerpo44", "Cuerpo45"],
+          "desplazamientos_obj": [[0, 0, 0], [-42, 0, 0]]
+        }]
+      },
+      {
+        "nombre_animacion": "Silla derecha",
+        "descripcion": "La silla derecha se desliza hasta salir de la mesa.",
+        "inicio": "Adentro",
+        "fin": "Afuera",
+        "duracion_segundos": 1,
+        "articulaciones": [{
+          "piezas": ["Cuerpo38", "Cuerpo39", "Cuerpo40", "Cuerpo41"],
+          "desplazamientos_obj": [[0, 0, 0], [42, 0, 0]]
+        }]
+      }
+    ]
+  }
 }

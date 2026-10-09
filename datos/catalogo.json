@@ -57,5 +57,12 @@
     "subcategoria": "Mesas y sillas",
     "imagen": "modelo.png?v=20261009-1324",
     "imagen_escala": 1.6
+  },
+  {
+    "carpeta": "mesa-sensorial",
+    "nombre": "Mesa Sensorial",
+    "categoria": "Montessori",
+    "subcategoria": "Mesas y Sillas",
+    "imagen": "modelo.png?v=20261009-1351"
   }
 ]

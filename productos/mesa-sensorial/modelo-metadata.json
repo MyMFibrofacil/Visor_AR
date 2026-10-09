@@ -1,0 +1,94 @@
+{
+  "dimensiones_modelo_mm": [
+    530.0,
+    488.0,
+    730.0
+  ],
+  "dimensiones_originales_mm": [
+    530.0,
+    488.0,
+    730.0
+  ],
+  "origen_original_m": [
+    0.31398766999999994,
+    -0.20600000000000002,
+    0.57604693
+  ],
+  "escala_obj_a_metros": 0.01,
+  "escala_ejes": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "rotacion_y_grados": 90,
+  "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
+  "dimensions_confirmadas_mm": {
+    "ancho": 530,
+    "alto": 488,
+    "profundidad": 730
+  },
+  "cuerpos": 13,
+  "triangulos": 2476,
+  "material": "La apariencia del MDF es aproximada; las piezas blancas se representan como ABS blanco.",
+  "materiales_obj": {
+    "Tablero_MDF": {
+      "nombre_exportado": "Tablero_MDF",
+      "caras": 2100
+    },
+    "ABS_(blanco)": {
+      "nombre_exportado": "ABS_(blanco)",
+      "caras": 376
+    }
+  },
+  "materiales_por_normal": {},
+  "materiales_por_pieza": {
+    "Tapa": {
+      "Tablero_MDF": 860
+    },
+    "Faja corta 1": {
+      "Tablero_MDF": 36
+    },
+    "Faja Corta 2": {
+      "Tablero_MDF": 36
+    },
+    "Faja Larga 1": {
+      "Tablero_MDF": 52
+    },
+    "Faja Larga 2": {
+      "Tablero_MDF": 52
+    },
+    "Pata 1": {
+      "Tablero_MDF": 68
+    },
+    "Pata 2": {
+      "Tablero_MDF": 68
+    },
+    "Pata 3": {
+      "Tablero_MDF": 68
+    },
+    "Pata 4": {
+      "Tablero_MDF": 68
+    },
+    "Tapa Batea 1": {
+      "Tablero_MDF": 396
+    },
+    "Tapa Batea 2": {
+      "Tablero_MDF": 396
+    },
+    "Batea 2": {
+      "ABS_(blanco)": 188
+    },
+    "Batea 1": {
+      "ABS_(blanco)": 188
+    }
+  },
+  "segmentos_bordes": 1296,
+  "triangulos_bordes": 15552,
+  "fuente_sha256": "4584878e897aef8e769134eaf5adafcdb6cd7013c5bd78b24d1d543b92120984",
+  "grupo_movil": null,
+  "niveles_movimiento": 0,
+  "animaciones": [
+    "Ambas tapas de bateas"
+  ],
+  "validacion_celular": "Pendiente"
+}

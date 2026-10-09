@@ -10,7 +10,7 @@ def _agregar_accessor_animacion(documento, buffer, valores, tipo):
     """Agrega claves de animación al bloque binario del GLB."""
     while len(buffer) % 4:
         buffer.append(0)
-    componentes = {"SCALAR": 1, "VEC4": 4}[tipo]
+    componentes = {"SCALAR": 1, "VEC3": 3, "VEC4": 4}[tipo]
     arreglo = np.asarray(valores, dtype="<f4").reshape(-1, componentes)
     offset = len(buffer)
     bloque = arreglo.tobytes()
@@ -34,13 +34,17 @@ def _agregar_animaciones(documento, buffer, nodos_por_cuerpo, movimientos):
     for indice_movimiento, movimiento in enumerate(movimientos):
         canales, samplers = [], []
         for indice_articulacion, articulacion in enumerate(movimiento["articulaciones"]):
-            grados = articulacion["keyframes_grados"]
             duracion = movimiento["duracion_segundos"]
-            tiempos = [duracion * i / (len(grados) - 1) for i in range(len(grados))]
+            es_giro = "keyframes_grados" in articulacion
+            poses = articulacion["keyframes_grados"] if es_giro else articulacion["desplazamientos_metros"]
+            tiempos = [duracion * i / (len(poses) - 1) for i in range(len(poses))]
+            tiempos.append(tiempos[-1] + duracion / (len(poses) - 1))
+            poses = [*poses, poses[-1]]
             entrada = _agregar_accessor_animacion(documento, buffer, tiempos, "SCALAR")
-            cuaterniones = [cuaternion_eje_angulo(articulacion["eje"], valor)
-                            for valor in grados]
-            salida = _agregar_accessor_animacion(documento, buffer, cuaterniones, "VEC4")
+            valores = ([cuaternion_eje_angulo(articulacion["eje"], valor) for valor in poses]
+                       if es_giro else poses)
+            salida = _agregar_accessor_animacion(documento, buffer, valores,
+                                                 "VEC4" if es_giro else "VEC3")
             sampler = len(samplers)
             samplers.append({"input": entrada, "output": salida, "interpolation": "LINEAR"})
             for pieza in articulacion["piezas"]:
@@ -55,16 +59,20 @@ def _agregar_animaciones(documento, buffer, nodos_por_cuerpo, movimientos):
                         raise ValueError(f"El grupo móvil no existe en el OBJ: {nombre_nodo}")
                     piezas_usadas.add(nombre_nodo)
                     nodo_pieza = nodos_por_cuerpo[nombre_nodo]
-                    pivote = articulacion["pivote_metros"]
-                    documento["nodes"][nodo_pieza]["translation"] = [-valor for valor in pivote]
-                    nodo_pivote = len(documento["nodes"])
-                    documento["nodes"].append({
-                        "name": f"Pivote {movimiento['nombre_animacion']} {nombre_nodo}",
-                        "translation": pivote, "children": [nodo_pieza]})
-                    raices.remove(nodo_pieza)
-                    raices.append(nodo_pivote)
+                    if es_giro:
+                        pivote = articulacion["pivote_metros"]
+                        documento["nodes"][nodo_pieza]["translation"] = [-valor for valor in pivote]
+                        nodo_pivote = len(documento["nodes"])
+                        documento["nodes"].append({
+                            "name": f"Pivote {movimiento['nombre_animacion']} {nombre_nodo}",
+                            "translation": pivote, "children": [nodo_pieza]})
+                        raices.remove(nodo_pieza)
+                        raices.append(nodo_pivote)
+                        nodo_destino, ruta = nodo_pivote, "rotation"
+                    else:
+                        nodo_destino, ruta = nodo_pieza, "translation"
                     canales.append({"sampler": sampler,
-                        "target": {"node": nodo_pivote, "path": "rotation"}})
+                        "target": {"node": nodo_destino, "path": ruta}})
         animaciones.append({"name": movimiento["nombre_animacion"],
                             "samplers": samplers, "channels": canales})
     documento["animations"] = animaciones
