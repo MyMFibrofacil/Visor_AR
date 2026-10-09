@@ -5,12 +5,5 @@
     "categoria": "Montessori",
     "subcategoria": "Torres",
     "imagen": "modelo.png"
-  },
-  {
-    "carpeta": "escalera-nino",
-    "nombre": "Escalera Niño",
-    "categoria": "Infanto Juvenil",
-    "subcategoria": "Infantil",
-    "imagen": "modelo.png"
   }
 ]

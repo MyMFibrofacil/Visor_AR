@@ -1,8 +1,6 @@
 {
   "nombre": "Torre Mesa",
-  "categoria": "Montessori",
   "codigo": "FC0003110001",
-  "subcategoria": "Torres",
   "descripcion": "Torre Mesa de MDF con plataforma, escalón y barra superior",
   "medidas_mm": {
     "ancho": 398,

@@ -3,7 +3,6 @@ export function cargarVistaProducto(config) {
   const modelo = document.querySelector('#modelo');
   const titulo = document.querySelector('h1');
   titulo.textContent = config.nombre;
-  document.querySelector('#categoria-producto').textContent = `Línea ${config.categoria || 'Montessori'}`;
   document.querySelector('#codigo-producto').textContent = `• Código ${config.codigo}`;
   document.querySelector('#nota-producto').textContent =
     `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.`;

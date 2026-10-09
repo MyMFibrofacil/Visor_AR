@@ -51,25 +51,4 @@ Se mantiene el diseño elegido, sin aro de órbita. La prueba AR con cámara rea
 el 8 de octubre de 2026. No se informó dispositivo, sistema operativo ni navegador;
 esta confirmación no acredita pruebas separadas en Android e iPhone.
 
-## Escalera Niño
-
-Incorporada el 9 de octubre de 2026 en `productos/escalera-nino/`, código
-`FC00050105`. Identidad y clasificación leídas de Productos Chatbot, Hoja 1,
-fila 16: Infanto Juvenil / Infantil; fibrofacil de 18 mm.
-
-Medidas nominales confirmadas por el usuario: 318 × 300 × 330 mm
-(ancho × alto × profundidad). Se priorizan sobre los 320 × 300 × 350 mm
-registrados en la planilla, que no se modificó.
-El OBJ tiene cinco cuerpos y 1.682 triángulos, coordenadas en centímetros y
-envolvente de 318 × 301,60096 × 330 mm. Se conserva la geometría original,
-sin deformación por ejes, centrada y apoyada en Y=0. Los contornos tienen
-radio de 0,4 mm. GLB y USDZ representan la misma geometría.
-
-Verificación: GLB sin errores ni advertencias del validador Khronos; USDZ sin
-errores con 28 validadores de OpenUSD. Carga, medidas, catálogo y vista inicial
-comprobados en navegador de escritorio y vista móvil, con revisión de Torre Mesa.
-AR con cámara física en Android e iPhone pendiente.
-
-Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/escalera-nino/
-
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.
