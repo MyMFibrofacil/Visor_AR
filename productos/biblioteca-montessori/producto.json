@@ -1,0 +1,35 @@
+{
+  "nombre": "Biblioteca Montessori",
+  "codigo": "FC00010901",
+  "categoria": "Montessori",
+  "subcategoria": "Habitacion",
+  "descripcion": "Biblioteca Montessori de fibrofacil con tres espacios escalonados para libros",
+  "medidas_mm": {
+    "ancho": 598,
+    "alto": 500,
+    "profundidad": 360
+  },
+  "apariencia": "La apariencia del fibrofacil es aproximada.",
+  "archivos": {
+    "glb": "modelo.glb",
+    "usdz": "modelo.usdz",
+    "poster": "modelo.png"
+  },
+  "camara": {
+    "orbita": "35deg 50deg 1.9m",
+    "objetivo": "0m 0.25m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 0.8m",
+    "maximo": "auto 100deg 4m"
+  },
+  "conversion": {
+    "unidad_obj_metros": 0.01,
+    "escala_ejes": [
+      1,
+      1,
+      1
+    ],
+    "radio_borde_metros": 0.00055,
+    "angulo_borde_grados": 35
+  }
+}

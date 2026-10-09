@@ -1,0 +1,62 @@
+{
+  "dimensiones_modelo_mm": [
+    598.0,
+    500.0,
+    360.00000000000006
+  ],
+  "dimensiones_originales_mm": [
+    598.0,
+    500.0,
+    360.00000000000006
+  ],
+  "origen_original_m": [
+    0.29878875,
+    -0.018000000000000002,
+    0.17
+  ],
+  "escala_obj_a_metros": 0.01,
+  "escala_ejes": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
+  "dimensions_confirmadas_mm": {
+    "ancho": 598,
+    "alto": 500,
+    "profundidad": 360
+  },
+  "cuerpos": 9,
+  "triangulos": 2688,
+  "material": "La apariencia del fibrofacil es aproximada.",
+  "segmentos_bordes": 1312,
+  "triangulos_bordes": 15744,
+  "fuente_sha256": "0c145e81d85f986620884657f7993c0f1939136d5fd2ee2b99df5a6b4f04e59c",
+  "validacion_celular": "AR con cámara física pendiente en Android e iPhone.",
+  "fecha_incorporacion": "2026-10-09",
+  "fuente_archivo": "Biblioteca Montessori.obj",
+  "fuente_medidas": "Envolvente geométrica del OBJ, verificada contra Productos Chatbot.",
+  "fuente_comercial": {
+    "planilla": "Productos Chatbot",
+    "spreadsheet_id": "15-MwPmN2j1vtM1xB-RFcRd_2UI74A2kHcfx-hPuAMdw",
+    "hoja": "Hoja 1",
+    "fila": 26,
+    "fecha_lectura": "2026-10-09",
+    "codigo": "FC00010901",
+    "categoria": "Montessori",
+    "subcategoria": "Habitacion",
+    "material_primario": "Fibrofacil",
+    "espesor_primario_mm": 18,
+    "material_secundario": "Fibrofacil",
+    "espesor_secundario_mm": 9,
+    "medidas_planilla_mm": {
+      "ancho": 600,
+      "alto": 500,
+      "profundidad": 360
+    }
+  },
+  "diferencia_medidas": "Ancho geométrico 598 mm frente a 600 mm comerciales. La ficha muestra la medida geométrica. Modelo conservado sin deformación.",
+  "validacion_glb": "Khronos glTF Validator: 0 errores y 0 advertencias.",
+  "validacion_usdz": "OpenUSD: 28 validadores, sin errores.",
+  "validacion_web": "Modelo y medidas comprobados en escritorio y vista móvil; catálogo con tres productos únicos y vista inicial comprobada."
+}

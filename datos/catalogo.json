@@ -12,5 +12,12 @@
     "categoria": "Infanto Juvenil",
     "subcategoria": "Infantil",
     "imagen": "modelo.png"
+  },
+  {
+    "carpeta": "biblioteca-montessori",
+    "nombre": "Biblioteca Montessori",
+    "categoria": "Montessori",
+    "subcategoria": "Habitacion",
+    "imagen": "modelo.png"
   }
 ]

@@ -72,4 +72,23 @@ AR con cámara física en Android e iPhone pendiente.
 
 Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/escalera-nino/
 
+## Biblioteca Montessori
+
+Incorporada el 9 de octubre de 2026 en `productos/biblioteca-montessori/`,
+código `FC00010901`. Identidad y clasificación leídas de Productos Chatbot,
+Hoja 1, fila 26: Montessori / Habitacion; fibrofacil de 18 y 9 mm.
+
+OBJ original con nueve cuerpos y 2.688 triángulos, coordenadas en centímetros.
+Medidas geométricas y visibles: 598 × 500 × 360 mm (ancho × alto × profundidad).
+La planilla registra 600 mm de ancho comercial. Se conserva la geometría sin
+deformación, con eje Y vertical y apoyo en Y=0. Contornos de radio 0,55 mm.
+La imagen de catálogo se genera desde el mismo modelo; la captura original
+sirve como referencia visual y permanece junto a los archivos de diseño.
+
+GLB sin errores ni advertencias de Khronos; USDZ sin errores con 28 validadores
+OpenUSD. Carga, medidas, catálogo, vista inicial y disposición móvil comprobados.
+Prueba de AR con cámara física pendiente en Android e iPhone.
+
+Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/biblioteca-montessori/
+
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.
