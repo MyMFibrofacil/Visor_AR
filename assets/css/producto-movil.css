@@ -1,0 +1,22 @@
+/** Ajustes del encabezado y del scroll vertical en fichas de producto móvil. */
+@media (max-width: 767px) {
+  #categoria-producto,
+  #codigo-producto,
+  .product-dimensions > div:first-child {
+    display: none;
+  }
+
+  body > header {
+    position: static !important;
+  }
+
+  body > main {
+    padding-top: 0 !important;
+    min-height: 0 !important;
+  }
+
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
+}
