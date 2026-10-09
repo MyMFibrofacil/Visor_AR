@@ -32,23 +32,23 @@
     "nombre": "Mesa Montessori",
     "categoria": "Montessori",
     "subcategoria": "Mesas y sillas",
-    "imagen": "modelo.png",
-    "imagen_escala": 2.4
+    "imagen": "modelo.png?v=20261009-1324",
+    "imagen_escala": 1.6
   },
   {
     "carpeta": "silla-montessori",
     "nombre": "Silla Montessori",
     "categoria": "Montessori",
     "subcategoria": "Mesas y sillas",
-    "imagen": "modelo.png",
-    "imagen_escala": 3.3
+    "imagen": "modelo.png?v=20261009-1324",
+    "imagen_escala": 2.45
   },
   {
     "carpeta": "mesa-y-2-sillas-montessori",
     "nombre": "Mesa y 2 sillas Montessori",
     "categoria": "Montessori",
     "subcategoria": "Mesas y sillas",
-    "imagen": "modelo.png",
-    "imagen_escala": 2.8
+    "imagen": "modelo.png?v=20261009-1324",
+    "imagen_escala": 1.6
   }
 ]

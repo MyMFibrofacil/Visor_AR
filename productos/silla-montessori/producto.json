@@ -6,7 +6,7 @@
   "descripcion": "Silla Montessori de MDF",
   "medidas_mm": { "ancho": 300, "alto": 380, "profundidad": 328 },
   "apariencia": "La apariencia del MDF es aproximada.",
-  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1324" },
   "camara": {
     "orbita": "35deg 65deg 1.15m",
     "objetivo": "0m 0.19m 0m",

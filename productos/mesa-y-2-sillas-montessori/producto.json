@@ -6,7 +6,7 @@
   "descripcion": "Combo Montessori de una mesa y dos sillas de MDF",
   "medidas_mm": { "ancho": 700, "alto": 421.15, "profundidad": 408 },
   "apariencia": "La apariencia del MDF es aproximada.",
-  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1324" },
   "camara": {
     "orbita": "35deg 65deg 2.1m",
     "objetivo": "0m 0.21m 0m",
@@ -18,7 +18,7 @@
   "presentaciones": [
     {
       "nombre": "Dos sillas guardadas",
-      "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+      "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1324" },
       "orbita": "35deg 65deg 2.1m",
       "medidas_mm": { "ancho": 700, "alto": 421.15, "profundidad": 408 }
     },

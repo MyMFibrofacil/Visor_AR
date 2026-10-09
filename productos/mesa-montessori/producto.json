@@ -6,7 +6,7 @@
   "descripcion": "Mesa Montessori de MDF",
   "medidas_mm": { "ancho": 620.491, "alto": 421.15, "profundidad": 408 },
   "apariencia": "La apariencia del MDF es aproximada.",
-  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png?v=20261009-1324" },
   "camara": {
     "orbita": "35deg 65deg 1.7m",
     "objetivo": "0m 0.21m 0m",
