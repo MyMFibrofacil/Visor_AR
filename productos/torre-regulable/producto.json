@@ -26,6 +26,6 @@
     "eje": "Y",
     "nombre_animacion": "Altura de la plataforma",
     "segundos_por_nivel": 3,
-    "desplazamientos_metros": [0, -0.04, -0.08, -0.12, -0.16]
+    "desplazamientos_metros": [0, -0.053, -0.106, -0.159, -0.212]
   }
 }
