@@ -1,0 +1,38 @@
+{
+  "dimensiones_modelo_mm": [
+    398.0,
+    880.0002800000001,
+    434.21016000000026
+  ],
+  "dimensiones_originales_mm": [
+    398.0,
+    880.0002800000001,
+    434.21016000000026
+  ],
+  "origen_original_m": [
+    -0.7653228000000001,
+    -0.018000000000000002,
+    1.0405351600000001
+  ],
+  "escala_obj_a_metros": 0.01,
+  "escala_ejes": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
+  "dimensions_confirmadas_mm": {
+    "ancho": 398,
+    "alto": 880,
+    "profundidad": 434.21
+  },
+  "cuerpos": 6,
+  "triangulos": 14388,
+  "material": "La apariencia del fibrofacil es aproximada.",
+  "segmentos_bordes": 6194,
+  "triangulos_bordes": 74328,
+  "fuente_sha256": "afdbfc9aa6543eb994f69335260825b79e5a0ac3efee541e9aee9a4f0b01d5c8",
+  "grupo_movil": "Cuerpo28",
+  "niveles_movimiento": 5,
+  "validacion_celular": "Pendiente"
+}

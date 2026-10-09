@@ -91,4 +91,28 @@ Prueba de AR con cámara física pendiente en Android e iPhone.
 
 Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/biblioteca-montessori/
 
+## Torre Aprendizaje Montessori Regulable
+
+Incorporada el 9 de octubre de 2026 en `productos/torre-regulable/`, código
+`FC0003110002`. Identidad y clasificación leídas de Productos Chatbot,
+Hoja 1, fila 70: Montessori / Torres; fibrofacil de 18 mm. La planilla registra
+42 × 91 × 40 cm; se usan las dimensiones verificadas del modelo: 39,8 × 88 ×
+43,421 cm (ancho × alto × profundidad).
+
+El OBJ conserva seis grupos y 14.388 triángulos. `Cuerpo28`, el tablero de
+38 × 33 cm y 18 mm de espesor, es la plataforma móvil. El visor ofrece cinco
+posiciones mediante un control con pasos. GLB contiene una animación de
+traslación vertical que mueve únicamente ese grupo; USDZ contiene la animación
+para Quick Look. En Android se habilita WebXR para conservar el control durante
+la sesión AR; en iPhone Quick Look ofrece su control nativo de animación.
+Escala original, sin deformación. Apariencia MDF aproximada y contornos
+negros de radio 0,55 mm.
+
+Verificación: GLB sin errores ni advertencias de Khronos; USDZ sin errores con
+validadores OpenUSD. Movimiento, cinco niveles, visor móvil y productos previos
+comprobados localmente. La interacción AR debe comprobarse con cámara en los
+dispositivos objetivo antes de darla por validada.
+
+Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/torre-regulable/
+
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.

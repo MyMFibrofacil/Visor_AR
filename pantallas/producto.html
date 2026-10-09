@@ -48,6 +48,14 @@
 <h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-bold tracking-tight">Torre Mesa</h1>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-1" id="descripcion-producto">Giralo para explorar sus detalles desde todos los ángulos.</p>
 </div>
+<section id="control-movimiento" class="hidden rounded-xl bg-surface-container-low p-4" aria-labelledby="etiqueta-movimiento">
+<div class="flex items-center justify-between gap-3">
+<label id="etiqueta-movimiento" for="nivel-movimiento" class="font-label-spatial text-label-spatial text-on-surface-variant">Altura de la plataforma</label>
+<output id="posicion-movimiento" for="nivel-movimiento" class="font-label-spatial text-label-spatial text-primary">Nivel 1 de 5</output>
+</div>
+<input id="nivel-movimiento" class="mt-3 w-full accent-primary" type="range" min="0" max="4" step="1" value="0" aria-label="Posición de la plataforma, cinco niveles">
+<div class="mt-1 flex justify-between text-xs text-on-surface-variant"><span>Más alta</span><span>Más baja</span></div>
+</section>
 <!-- 3-Column Dimension Grid -->
 <div class="flex flex-col gap-2">
 <div class="flex items-center justify-between">

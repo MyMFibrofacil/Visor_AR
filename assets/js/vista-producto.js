@@ -4,6 +4,14 @@ export function cargarVistaProducto(config) {
   const titulo = document.querySelector('h1');
   titulo.textContent = config.nombre;
   document.querySelector('#categoria-producto').textContent = `Línea ${config.categoria || 'Montessori'}`;
+  if (config.ar_modos) modelo.setAttribute('ar-modes', config.ar_modos);
+  if (config.movimiento) {
+    document.querySelector('#control-movimiento').classList.remove('hidden');
+    const selector = document.querySelector('#nivel-movimiento');
+    selector.max = String(config.movimiento.desplazamientos_metros.length - 1);
+    document.querySelector('#posicion-movimiento').textContent =
+      `Nivel 1 de ${config.movimiento.desplazamientos_metros.length}`;
+  }
   document.querySelector('#codigo-producto').textContent = `• Código ${config.codigo}`;
   document.querySelector('#nota-producto').textContent =
     `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.`;

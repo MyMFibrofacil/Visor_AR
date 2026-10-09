@@ -6,13 +6,20 @@ import tempfile
 from pathlib import Path
 
 
-def exportar_usdz(cuerpos, destino):
+def exportar_usdz(cuerpos, destino, movimiento=None):
     """Escribe cuerpos en metros, eje Y vertical y material mate."""
     carpeta_temporal = Path(tempfile.mkdtemp(prefix="producto-usd-"))
     temporal = carpeta_temporal / "producto.usdc"
     stage = Usd.Stage.CreateNew(str(temporal))
     UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.y)
     UsdGeom.SetStageMetersPerUnit(stage, 1.0)
+    if movimiento:
+        fps = 24
+        stage.SetStartTimeCode(0)
+        stage.SetEndTimeCode(len(movimiento["desplazamientos_metros"]) *
+                             movimiento["segundos_por_nivel"] * fps)
+        stage.SetTimeCodesPerSecond(fps)
+        stage.SetInterpolationType(Usd.InterpolationTypeHeld)
     raiz = UsdGeom.Xform.Define(stage, "/Producto")
     stage.SetDefaultPrim(raiz.GetPrim())
     material = UsdShade.Material.Define(stage, "/Producto/Looks/MDF")
@@ -41,6 +48,16 @@ def exportar_usdz(cuerpos, destino):
         malla.CreateExtentAttr(UsdGeom.PointBased.ComputeExtent(Vt.Vec3fArray(puntos)))
         UsdShade.MaterialBindingAPI.Apply(malla.GetPrim()).Bind(
             material_bordes if cuerpo.get('material') == 'bordes' else material)
+        if movimiento and nombre == movimiento["grupo"]:
+            translate = malla.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble)
+            for nivel, alto in enumerate(movimiento["desplazamientos_metros"]):
+                frame = nivel * movimiento["segundos_por_nivel"] * 24
+                translate.Set(Gf.Vec3d(0, alto, 0), Usd.TimeCode(frame))
+            frame_final = len(movimiento["desplazamientos_metros"]) * movimiento["segundos_por_nivel"] * 24
+            translate.Set(Gf.Vec3d(0, movimiento["desplazamientos_metros"][-1], 0),
+                          Usd.TimeCode(frame_final))
+    if movimiento and movimiento["grupo"] not in cuerpos:
+        raise ValueError(f"El grupo móvil no existe en el OBJ: {movimiento['grupo']}")
     stage.GetRootLayer().Save()
     paquete = carpeta_temporal / "producto.usdz"
     if not UsdUtils.CreateNewUsdzPackage(Sdf.AssetPath(str(temporal)), str(paquete)):

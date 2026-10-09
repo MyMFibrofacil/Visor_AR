@@ -32,14 +32,17 @@ def main():
     cuerpos = leer_cuerpos(origen)
     resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"], conversion["escala_ejes"])
     escena, cantidad_bordes = agregar_bordes(cuerpos, conversion["radio_borde_metros"], conversion["angulo_borde_grados"])
-    exportar_glb(escena, destino / config["archivos"]["glb"])
-    exportar_usdz(escena, destino / config["archivos"]["usdz"])
+    movimiento = config.get("movimiento")
+    exportar_glb(escena, destino / config["archivos"]["glb"], movimiento)
+    exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento)
     resumen.update(dimensions_confirmadas_mm=config["medidas_mm"],
         cuerpos=len(cuerpos), triangulos=sum(len(c["posiciones"]) // 3 for c in cuerpos.values()),
         material=config["apariencia"],
         segmentos_bordes=cantidad_bordes,
         triangulos_bordes=sum(len(c['posiciones']) // 3 for c in escena.values() if c.get('material') == 'bordes'),
         fuente_sha256=hashlib.sha256(origen.read_bytes()).hexdigest(),
+        grupo_movil=movimiento.get("grupo") if movimiento else None,
+        niveles_movimiento=len(movimiento["desplazamientos_metros"]) if movimiento else 0,
         validacion_celular="Pendiente")
     (destino / "modelo-metadata.json").write_text(json.dumps(resumen, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(resumen, ensure_ascii=False))

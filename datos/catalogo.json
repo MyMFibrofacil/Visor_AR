@@ -19,5 +19,12 @@
     "categoria": "Montessori",
     "subcategoria": "Habitacion",
     "imagen": "modelo.png"
+  },
+  {
+    "carpeta": "torre-regulable",
+    "nombre": "Torre Aprendizaje Montessori Regulable",
+    "categoria": "Montessori",
+    "subcategoria": "Torres",
+    "imagen": "modelo.png"
   }
 ]

@@ -1,0 +1,31 @@
+{
+  "nombre": "Torre Aprendizaje Montessori Regulable",
+  "codigo": "FC0003110002",
+  "categoria": "Montessori",
+  "subcategoria": "Torres",
+  "descripcion": "Torre de aprendizaje Montessori regulable con plataforma móvil de cinco niveles",
+  "medidas_mm": { "ancho": 398, "alto": 880, "profundidad": 434.21 },
+  "apariencia": "La apariencia del fibrofacil es aproximada.",
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "camara": {
+    "orbita": "35deg 70deg 2m",
+    "objetivo": "0m 0.44m 0m",
+    "campo": "32deg",
+    "minimo": "auto 10deg 0.8m",
+    "maximo": "auto 100deg 3.5m"
+  },
+  "ar_modos": "webxr quick-look",
+  "conversion": {
+    "unidad_obj_metros": 0.01,
+    "escala_ejes": [1, 1, 1],
+    "radio_borde_metros": 0.00055,
+    "angulo_borde_grados": 35
+  },
+  "movimiento": {
+    "grupo": "Cuerpo28",
+    "eje": "Y",
+    "nombre_animacion": "Altura de la plataforma",
+    "segundos_por_nivel": 3,
+    "desplazamientos_metros": [0, -0.04, -0.08, -0.12, -0.16]
+  }
+}
