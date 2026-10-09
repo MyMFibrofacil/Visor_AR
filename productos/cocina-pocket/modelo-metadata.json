@@ -20,6 +20,7 @@
     1.0,
     1.0
   ],
+  "rotacion_y_grados": 0,
   "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
   "dimensions_confirmadas_mm": {
     "ancho": 600.02,
@@ -28,15 +29,15 @@
   },
   "cuerpos": 31,
   "triangulos": 58670,
-  "material": "Materiales del OBJ de Fusion 360 conservados por pieza; tonos MDF y pino tomados visualmente del render de Fusion.",
+  "material": "Materiales por pieza de Fusion 360; fondo de alzada blanco al frente y MDF atrás. Tonos MDF y pino aproximados visualmente del render de Fusion.",
   "materiales_obj": {
     "Tablero_MDF": {
       "nombre_exportado": "Tablero_MDF",
-      "caras": 37878
+      "caras": 38499
     },
     "ABS_(blanco)": {
       "nombre_exportado": "ABS_(blanco)",
-      "caras": 17962
+      "caras": 17341
     },
     "Pino": {
       "nombre_exportado": "Pino",
@@ -45,6 +46,11 @@
     "Superficie_-_Mate": {
       "nombre_exportado": "Superficie_-_Mate",
       "caras": 2192
+    }
+  },
+  "materiales_por_normal": {
+    "fondo alzada": {
+      "Tablero_MDF": 621
     }
   },
   "materiales_por_pieza": {
@@ -127,7 +133,8 @@
       "Tablero_MDF": 7024
     },
     "fondo alzada": {
-      "ABS_(blanco)": 17962
+      "ABS_(blanco)": 17341,
+      "Tablero_MDF": 621
     },
     "tirador": {
       "Pino": 638
@@ -147,5 +154,13 @@
   "fuente_sha256": "7d57dceb5e00a3c83e57a96b4c27dd6ba57ae32ff17d636a38b7a5549055f936",
   "grupo_movil": null,
   "niveles_movimiento": 0,
+  "animaciones": [
+    "Puerta horno",
+    "Puerta ciega",
+    "Puerta alzada",
+    "Perillas",
+    "Canillas hacia afuera",
+    "Grifo ±22,5°"
+  ],
   "validacion_celular": "Pendiente"
 }

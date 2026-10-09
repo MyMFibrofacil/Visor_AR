@@ -14,6 +14,11 @@ export function cargarVistaProducto(config) {
     document.querySelector('#posicion-movimiento').textContent =
       `Nivel 1 de ${config.movimiento.desplazamientos_metros.length}`;
   }
+  if (config.movimientos?.length) {
+    document.querySelector('#control-movimiento').classList.remove('hidden');
+    document.querySelector('#control-movimiento-individual').classList.add('hidden');
+    document.querySelector('#control-movimiento-multiple').classList.remove('hidden');
+  }
   const codigo = document.querySelector('#codigo-producto');
   if (config.codigo) {
     codigo.textContent = `• Código ${config.codigo}`;

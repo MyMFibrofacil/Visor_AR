@@ -4,6 +4,7 @@ import { cargarVistaProducto } from './vista-producto.js';
 import { iniciarControles } from './controles-visor.js';
 import { leerJson } from './shared/archivos.js';
 import { iniciarMovimientoProducto } from './movimiento-producto.js';
+import { iniciarMovimientosProducto } from './movimientos-producto.js';
 import { iniciarPresentacionesProducto } from './presentaciones-producto.js';
 
 try {
@@ -15,6 +16,7 @@ try {
     modelo.src = new URL(config.archivos.glb, location.href).href;
   }
   if (config.movimiento) iniciarMovimientoProducto(modelo, config.movimiento);
+  if (config.movimientos) iniciarMovimientosProducto(modelo, config.movimientos);
 } catch (error) {
   console.error('No se pudo iniciar el producto:', error);
   document.querySelector('#nota-producto').textContent = 'No se pudo cargar el producto. Recargá la página para intentar otra vez.';

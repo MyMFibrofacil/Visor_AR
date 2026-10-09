@@ -5,11 +5,67 @@
   "subcategoria": "Linea Pocket",
   "descripcion": "Cocina infantil Pocket con materiales asignados en Fusion 360.",
   "medidas_mm": { "ancho": 600.02, "alto": 881.02, "profundidad": 353.6844 },
-  "apariencia": "Materiales del OBJ de Fusion 360 conservados por pieza; tonos MDF y pino tomados visualmente del render de Fusion.",
+  "apariencia": "Materiales por pieza de Fusion 360; fondo de alzada blanco al frente y MDF atrás. Tonos MDF y pino aproximados visualmente del render de Fusion.",
   "materiales": {
     "Tablero_MDF": { "color": [0.381, 0.223, 0.114] },
     "Pino": { "color": [0.565, 0.342, 0.135] }
   },
+  "asignaciones_material_por_normal": [
+    { "grupo": "fondo alzada", "eje": "z", "sentido": "negativo", "umbral": 0.9, "material": "Tablero_MDF" }
+  ],
+  "movimientos": [
+    {
+      "nombre_animacion": "Puerta horno",
+      "descripcion": "El borde inferior queda fijo; la parte superior baja y la manija acompaña.",
+      "inicio": "Cerrada", "fin": "Abierta", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["Pta Horno", "manija 1"], "eje": "X", "pivote_obj": [-111.25, -33.7, 31.9], "keyframes_grados": [0, 90] }
+      ]
+    },
+    {
+      "nombre_animacion": "Puerta ciega",
+      "descripcion": "Abre hacia la izquierda con su manija.",
+      "inicio": "Cerrada", "fin": "Abierta", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["Pta ciega", "manija 2"], "eje": "Y", "pivote_obj": [-155.7, -19.7, 31.9], "keyframes_grados": [0, -75] }
+      ]
+    },
+    {
+      "nombre_animacion": "Puerta alzada",
+      "descripcion": "Puerta, frente y tirador giran juntos hacia la izquierda.",
+      "inicio": "Cerrada", "fin": "Abierta", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["pta alzada", "frente pta alzada", "tirador"], "eje": "Y", "pivote_obj": [-155.7, 36.39, 14.8], "keyframes_grados": [0, -75] }
+      ]
+    },
+    {
+      "nombre_animacion": "Perillas",
+      "descripcion": "Las tres perillas completan una vuelta entera de 360°.",
+      "inicio": "0°", "fin": "360°", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["perillas"], "eje": "Z", "pivote_obj": [-103.48, -2.215, 32.675], "keyframes_grados": [0, 90, 180, 270, 360] },
+        { "piezas": ["perillas 2"], "eje": "Z", "pivote_obj": [-111.98, -2.215, 32.675], "keyframes_grados": [0, 90, 180, 270, 360] },
+        { "piezas": ["perillas 3"], "eje": "Z", "pivote_obj": [-119.98, -2.215, 32.675], "keyframes_grados": [0, 90, 180, 270, 360] }
+      ]
+    },
+    {
+      "nombre_animacion": "Canillas hacia afuera",
+      "descripcion": "Cada canilla se abre hacia afuera hasta 90° alrededor del centro de su base circular.",
+      "inicio": "Cerradas", "fin": "Abiertas 90°", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["Canilla"], "eje": "Y", "pivote_obj": [-133.37, 0.1, 5.59], "keyframes_grados": [0, 90] },
+        { "piezas": ["Canilla (1)"], "eje": "Y", "pivote_obj": [-147.57, 0.1, 5.59], "keyframes_grados": [0, -90] }
+      ]
+    },
+    {
+      "nombre_animacion": "Grifo ±22,5°",
+      "descripcion": "El grifo gira 22,5° a la izquierda o a la derecha.",
+      "inicio": "Izquierda 22,5°", "fin": "Derecha 22,5°", "duracion_segundos": 1,
+      "articulaciones": [
+        { "piezas": ["Grifo"], "eje": "Y", "pivote_obj": [-140.4, 0.08, 8.0], "keyframes_grados": [-22.5, 0, 22.5] }
+      ]
+    }
+  ],
   "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
   "camara": {
     "orbita": "25deg 70deg 1.8m",

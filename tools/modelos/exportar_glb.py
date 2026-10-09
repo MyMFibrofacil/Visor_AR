@@ -2,10 +2,76 @@
 import json
 import struct
 import numpy as np
+from movimientos import cuaternion_eje_angulo
 from materiales import COLOR_MDF
 
 
-def exportar_glb(cuerpos, destino, movimiento=None, material=None, materiales=None):
+def _agregar_accessor_animacion(documento, buffer, valores, tipo):
+    """Agrega claves de animación al bloque binario del GLB."""
+    while len(buffer) % 4:
+        buffer.append(0)
+    componentes = {"SCALAR": 1, "VEC4": 4}[tipo]
+    arreglo = np.asarray(valores, dtype="<f4").reshape(-1, componentes)
+    offset = len(buffer)
+    bloque = arreglo.tobytes()
+    buffer.extend(bloque)
+    vista = len(documento["bufferViews"])
+    documento["bufferViews"].append({"buffer": 0, "byteOffset": offset,
+                                     "byteLength": len(bloque)})
+    accesor = {"bufferView": vista, "componentType": 5126,
+               "count": len(arreglo), "type": tipo}
+    accesor.update(min=arreglo.min(axis=0).tolist(), max=arreglo.max(axis=0).tolist())
+    indice = len(documento["accessors"])
+    documento["accessors"].append(accesor)
+    return indice
+
+
+def _agregar_animaciones(documento, buffer, nodos_por_cuerpo, movimientos):
+    """Crea un clip y un pivote independiente por cada pieza articulada."""
+    raices = documento["scenes"][documento["scene"]]["nodes"]
+    animaciones = []
+    piezas_usadas = set()
+    for indice_movimiento, movimiento in enumerate(movimientos):
+        canales, samplers = [], []
+        for indice_articulacion, articulacion in enumerate(movimiento["articulaciones"]):
+            grados = articulacion["keyframes_grados"]
+            duracion = movimiento["duracion_segundos"]
+            tiempos = [duracion * i / (len(grados) - 1) for i in range(len(grados))]
+            entrada = _agregar_accessor_animacion(documento, buffer, tiempos, "SCALAR")
+            cuaterniones = [cuaternion_eje_angulo(articulacion["eje"], valor)
+                            for valor in grados]
+            salida = _agregar_accessor_animacion(documento, buffer, cuaterniones, "VEC4")
+            sampler = len(samplers)
+            samplers.append({"input": entrada, "output": salida, "interpolation": "LINEAR"})
+            for pieza in articulacion["piezas"]:
+                nombres = [pieza]
+                nombre_bordes = f"{pieza}_Bordes"
+                if nombre_bordes in nodos_por_cuerpo:
+                    nombres.append(nombre_bordes)
+                for nombre_nodo in nombres:
+                    if nombre_nodo in piezas_usadas:
+                        raise ValueError(f"La pieza aparece en más de un movimiento: {nombre_nodo}")
+                    if nombre_nodo not in nodos_por_cuerpo:
+                        raise ValueError(f"El grupo móvil no existe en el OBJ: {nombre_nodo}")
+                    piezas_usadas.add(nombre_nodo)
+                    nodo_pieza = nodos_por_cuerpo[nombre_nodo]
+                    pivote = articulacion["pivote_metros"]
+                    documento["nodes"][nodo_pieza]["translation"] = [-valor for valor in pivote]
+                    nodo_pivote = len(documento["nodes"])
+                    documento["nodes"].append({
+                        "name": f"Pivote {movimiento['nombre_animacion']} {nombre_nodo}",
+                        "translation": pivote, "children": [nodo_pieza]})
+                    raices.remove(nodo_pieza)
+                    raices.append(nodo_pivote)
+                    canales.append({"sampler": sampler,
+                        "target": {"node": nodo_pivote, "path": "rotation"}})
+        animaciones.append({"name": movimiento["nombre_animacion"],
+                            "samplers": samplers, "channels": canales})
+    documento["animations"] = animaciones
+
+
+def exportar_glb(cuerpos, destino, movimiento=None, material=None, materiales=None,
+                 movimientos=None):
     """Guarda los cuerpos, conservando sus normales y separaciones originales."""
     material = material or {}
     materiales = materiales or {}
@@ -69,7 +135,11 @@ def exportar_glb(cuerpos, destino, movimiento=None, material=None, materiales=No
         documento["nodes"].append({"name": nombre, "mesh": indice})
         nodos_por_cuerpo[nombre] = indice
         documento["scenes"][0]["nodes"].append(indice)
-    if movimiento:
+    if movimientos:
+        if movimiento:
+            raise ValueError("No se pueden combinar movimiento simple y varios movimientos.")
+        _agregar_animaciones(documento, buffer, nodos_por_cuerpo, movimientos)
+    elif movimiento:
         grupo = movimiento["grupo"]
         if grupo not in nodos_por_cuerpo:
             raise ValueError(f"El grupo móvil no existe en el OBJ: {grupo}")

@@ -1,5 +1,6 @@
 """Lee materiales MTL de Fusion y resuelve sus acabados para GLB y USDZ."""
 from pathlib import Path
+import numpy as np
 
 COLOR_MDF = [0.52, 0.34, 0.18]
 COLOR_PINO = [0.40, 0.23, 0.12]
@@ -68,3 +69,27 @@ def resolver_materiales(nombres, materiales_mtl, overrides=None, global_material
     materiales["bordes"] = {
         "nombre": "Bordes negros", "color": [0.001, 0.001, 0.001], "roughness": 1.0}
     return materiales
+
+
+def asignar_material_por_normal(cuerpos, reglas):
+    """Reasigna caras cuyo vector normal apunta al lado indicado del eje."""
+    cambios = {}
+    for regla in reglas or []:
+        grupo = regla["grupo"]
+        if grupo not in cuerpos:
+            raise ValueError(f"No existe el grupo OBJ indicado para cambiar material: {grupo}")
+        cuerpo = cuerpos[grupo]
+        eje = {"x": 0, "y": 1, "z": 2}.get(regla["eje"].casefold())
+        if eje is None:
+            raise ValueError(f"Eje de normal no válido: {regla['eje']}")
+        normales = cuerpo["normales"].reshape(-1, 3, 3).mean(axis=1)[:, eje]
+        signo = 1 if regla.get("sentido", "positivo").casefold() == "positivo" else -1
+        umbral = float(regla.get("umbral", 0.9))
+        seleccionadas = normales * signo >= umbral
+        if not seleccionadas.any():
+            raise ValueError(f"La regla de material no encontró caras en el grupo: {grupo}")
+        materiales = cuerpo["material_por_cara"]
+        for indice in np.flatnonzero(seleccionadas):
+            materiales[indice] = regla["material"]
+        cambios[grupo] = {regla["material"]: int(seleccionadas.sum())}
+    return cambios

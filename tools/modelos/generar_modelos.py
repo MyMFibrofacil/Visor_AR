@@ -6,6 +6,8 @@ from collections import Counter
 from pathlib import Path
 from leer_obj import leer_cuerpos
 from materiales import leer_materiales_mtl, resolver_materiales
+from materiales import asignar_material_por_normal
+from movimientos import preparar_movimientos
 from preparar_escena import preparar_escena
 from exportar_glb import exportar_glb
 from exportar_usdz import exportar_usdz
@@ -32,19 +34,25 @@ def main():
     conversion = config['conversion']
     destino.mkdir(parents=True, exist_ok=True)
     cuerpos = leer_cuerpos(origen)
+    cambios_material = asignar_material_por_normal(
+        cuerpos, config.get("asignaciones_material_por_normal"))
     nombres_materiales = list(dict.fromkeys(
         material for cuerpo in cuerpos.values() for material in cuerpo["material_por_cara"]))
     definiciones_mtl = leer_materiales_mtl(origen)
     materiales = resolver_materiales(nombres_materiales, definiciones_mtl,
         config.get("materiales"), config.get("material"))
-    resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"], conversion["escala_ejes"])
+    resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"],
+        conversion["escala_ejes"], conversion.get("rotacion_y_grados", 0))
+    movimientos = preparar_movimientos(config.get("movimientos"),
+        conversion["unidad_obj_metros"], resumen["origen_original_m"],
+        resumen["escala_ejes"], cuerpos)
     escena, cantidad_bordes = agregar_bordes(cuerpos, conversion["radio_borde_metros"], conversion["angulo_borde_grados"])
     movimiento = config.get("movimiento")
     material_global = config.get("material")
     exportar_glb(escena, destino / config["archivos"]["glb"], movimiento,
-                 material_global, materiales)
+                 material_global, materiales, movimientos=movimientos)
     exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento,
-                  material_global, materiales)
+                  material_global, materiales, movimientos=movimientos)
     asignaciones = {}
     asignaciones_por_pieza = {}
     for nombre_material in nombres_materiales:
@@ -59,12 +67,14 @@ def main():
         cuerpos=len(cuerpos), triangulos=sum(len(c["posiciones"]) // 3 for c in cuerpos.values()),
         material=config["apariencia"],
         materiales_obj=asignaciones,
+        materiales_por_normal=cambios_material,
         materiales_por_pieza=asignaciones_por_pieza,
         segmentos_bordes=cantidad_bordes,
         triangulos_bordes=sum(len(c['posiciones']) // 3 for c in escena.values() if c.get('material') == 'bordes'),
         fuente_sha256=hashlib.sha256(origen.read_bytes()).hexdigest(),
         grupo_movil=movimiento.get("grupo") if movimiento else None,
         niveles_movimiento=len(movimiento["desplazamientos_metros"]) if movimiento else 0,
+        animaciones=[item["nombre_animacion"] for item in movimientos],
         validacion_celular="Pendiente")
     (destino / "modelo-metadata.json").write_text(json.dumps(resumen, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(resumen, ensure_ascii=False))

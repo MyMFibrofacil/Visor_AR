@@ -6,7 +6,8 @@ import tempfile
 from pxr import Usd, UsdGeom, UsdShade, Sdf, Gf, UsdUtils, Vt, Tf
 
 
-def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=None):
+def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=None,
+                  movimientos=None):
     """Escribe la geometría y sus materiales por pieza en un paquete USDZ."""
     material = material or {}
     materiales = materiales or {}
@@ -15,8 +16,13 @@ def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=N
     stage = Usd.Stage.CreateNew(str(temporal))
     UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.y)
     UsdGeom.SetStageMetersPerUnit(stage, 1.0)
-    if movimiento:
-        fps = 24
+    fps = 24
+    if movimientos:
+        stage.SetStartTimeCode(0)
+        stage.SetEndTimeCode(max(m["duracion_segundos"] for m in movimientos) * fps)
+        stage.SetTimeCodesPerSecond(fps)
+        stage.SetInterpolationType(Usd.InterpolationTypeLinear)
+    elif movimiento:
         stage.SetStartTimeCode(0)
         stage.SetEndTimeCode(len(movimiento["desplazamientos_metros"]) *
                              movimiento["segundos_por_nivel"] * fps)
@@ -51,8 +57,42 @@ def exportar_usdz(cuerpos, destino, movimiento=None, material=None, materiales=N
             if nombre != "bordes":
                 rutas_materiales[nombre] = rutas_materiales[material.get("nombre", "MDF aproximado")]
 
+    articulaciones_por_pieza = {}
+    for indice_movimiento, item in enumerate(movimientos or []):
+        for indice_articulacion, articulacion in enumerate(item["articulaciones"]):
+            for pieza in articulacion["piezas"]:
+                for nombre_nodo in (pieza, f"{pieza}_Bordes"):
+                    if nombre_nodo == f"{pieza}_Bordes" and nombre_nodo not in cuerpos:
+                        continue
+                    if nombre_nodo in articulaciones_por_pieza:
+                        raise ValueError(f"La pieza aparece en más de un movimiento: {nombre_nodo}")
+                    articulaciones_por_pieza[nombre_nodo] = (indice_movimiento, indice_articulacion,
+                                                             item, articulacion)
+
     for indice_cuerpo, (nombre, cuerpo) in enumerate(cuerpos.items()):
-        ruta_grupo = f"/Producto/Pieza_{indice_cuerpo}_{Tf.MakeValidIdentifier(nombre)}"
+        articulacion_datos = articulaciones_por_pieza.get(nombre)
+        if articulacion_datos:
+            indice_movimiento, indice_articulacion, item, articulacion = articulacion_datos
+            identificador = Tf.MakeValidIdentifier(nombre)
+            ruta_pivote = (f"/Producto/Movimiento_{indice_movimiento}_"
+                           f"Articulacion_{indice_articulacion}_{identificador}")
+            pivote = articulacion["pivote_metros"]
+            xform_pivote = UsdGeom.Xform.Define(stage, ruta_pivote)
+            xform_pivote.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(
+                Gf.Vec3d(*pivote))
+            rotacion = getattr(xform_pivote, f"AddRotate{articulacion['eje']}Op")(
+                UsdGeom.XformOp.PrecisionFloat)
+            grados = articulacion["keyframes_grados"]
+            for indice, angulo in enumerate(grados):
+                tiempo = item["duracion_segundos"] * indice / (len(grados) - 1) * fps
+                rotacion.Set(float(angulo), Usd.TimeCode(tiempo))
+            ruta_grupo = f"{ruta_pivote}/Pieza_{indice_cuerpo}_{identificador}"
+            grupo = UsdGeom.Xform.Define(stage, ruta_grupo)
+            grupo.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(
+                Gf.Vec3d(*[-valor for valor in pivote]))
+        else:
+            ruta_grupo = f"/Producto/Pieza_{indice_cuerpo}_{Tf.MakeValidIdentifier(nombre)}"
+            grupo = UsdGeom.Xform.Define(stage, ruta_grupo)
         grupo = UsdGeom.Xform.Define(stage, ruta_grupo)
         posiciones = cuerpo["posiciones"].reshape(-1, 3, 3)
         normales = cuerpo["normales"].reshape(-1, 3, 3)
