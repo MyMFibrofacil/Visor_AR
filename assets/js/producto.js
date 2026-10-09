@@ -1,6 +1,7 @@
 /** Entrada de cada página de producto: carga configuración e inicia el visor. */
 import '../vendor/model-viewer.min.js';
-import { cargarVistaProducto } from './vista-producto.js?v=20261009-mobile-stack';
+import { cargarVistaProducto } from './vista-producto.js?v=20261009-prevent-pull-refresh';
+import { evitarRecargaPorTiron } from './evitar-recarga-por-tiron.js';
 import { iniciarControles } from './controles-visor.js';
 import { leerJson } from './shared/archivos.js';
 import { iniciarMovimientoProducto } from './movimiento-producto.js';
@@ -11,6 +12,9 @@ import { iniciarMovimientoSillasMontessori } from './movimiento-sillas-montessor
 try {
   const config = await leerJson(new URL('producto.json', location.href));
   const modelo = cargarVistaProducto(config);
+  if (config.movimiento || config.movimientos?.length || config.movimiento_sillas) {
+    evitarRecargaPorTiron();
+  }
   // Se asigna después de registrar los eventos, incluso si el modelo está en caché.
   if (config.movimiento_sillas) {
     modelo.setAttribute('src', new URL(config.archivos.glb, location.href).href);
