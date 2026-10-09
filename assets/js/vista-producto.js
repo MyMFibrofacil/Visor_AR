@@ -2,6 +2,9 @@
 import { mostrarMedidas } from './shared/medidas.js';
 
 export function cargarVistaProducto(config) {
+  const tieneMovimiento = Boolean(config.movimiento || config.movimientos?.length || config.movimiento_sillas);
+  document.body.classList.toggle('tiene-movimiento', tieneMovimiento);
+  document.documentElement.classList.toggle('pagina-con-movimiento', tieneMovimiento);
   const modelo = document.querySelector('#modelo');
   const titulo = document.querySelector('h1');
   titulo.textContent = config.nombre;
@@ -31,15 +34,19 @@ export function cargarVistaProducto(config) {
     codigo.hidden = true;
   }
   document.querySelector('#nota-producto').textContent =
-    `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.`;
+    `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.` +
+    (config.movimiento || config.movimientos?.length || config.movimiento_sillas
+      ? ' Los movimientos se controlan en esta vista 3D; en realidad aumentada se muestra la posición base.'
+      : '');
   document.querySelector('#descripcion-producto').textContent =
     'Giralo para explorar sus detalles desde todos los ángulos.';
   mostrarMedidas(config.medidas_mm);
   modelo.setAttribute('alt', config.descripcion);
   modelo.setAttribute('poster', new URL(config.archivos.poster, location.href).href);
-  if (!config.movimiento_sillas) {
-    modelo.setAttribute('ios-src', new URL(config.archivos.usdz, location.href).href);
+  if (config.movimiento_sillas) {
+    modelo.setAttribute('src', new URL(config.archivos.glb, location.href).href);
   }
+  modelo.setAttribute('ios-src', new URL(config.archivos.usdz, location.href).href);
   for (const [atributo, clave] of [
     ['camera-orbit', 'orbita_plantilla'], ['camera-target', 'objetivo'],
     ['field-of-view', 'campo'], ['min-camera-orbit', 'minimo'],

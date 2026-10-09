@@ -57,6 +57,14 @@ def main():
                  material_global, materiales, movimientos=movimientos)
     exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento,
                   material_global, materiales, movimientos=movimientos)
+    tiene_movimiento = bool(movimiento or movimientos)
+    archivos_ar = config.get("archivos_ar") or (
+        {"glb": "modelo-ar.glb", "usdz": "modelo-ar.usdz"} if tiene_movimiento else None)
+    if archivos_ar:
+        exportar_glb(escena, destino / archivos_ar["glb"], material=material_global,
+                     materiales=materiales)
+        exportar_usdz(escena, destino / archivos_ar["usdz"], material=material_global,
+                      materiales=materiales)
     asignaciones = {}
     asignaciones_por_pieza = {}
     for nombre_material in nombres_materiales:

@@ -1,10 +1,12 @@
 /** Permite desplazar cada silla del combo Montessori de forma independiente. */
+import { mostrarMedidas } from './shared/medidas.js';
+
 const SILLAS = {
   izquierda: { animacion: 'Silla izquierda' },
   derecha: { animacion: 'Silla derecha' },
 };
 
-export function iniciarMovimientoSillasMontessori(modelo, configuracion) {
+export function iniciarMovimientoSillasMontessori(modelo, configuracion, medidasBase) {
   const selector = document.querySelector('#selector-silla-montessori');
   const barra = document.querySelector('#avance-silla-montessori');
   const salida = document.querySelector('#valor-silla-montessori');
@@ -42,6 +44,8 @@ export function iniciarMovimientoSillasMontessori(modelo, configuracion) {
       fade: 0,
     });
     modelo.pause();
+    mostrarMedidas({ ancho: medidasBase.ancho + configuracion.desplazamiento_maximo_metros *
+      1000 * (posiciones.izquierda + posiciones.derecha) });
   }
 
   function iniciarAlCargar() {

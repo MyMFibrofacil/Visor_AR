@@ -149,13 +149,14 @@ mesa 620,491 × 421,15 × 408 mm; silla 300 × 380 × 328 mm; combo guardado
 700 × 421,15 × 408 mm. El combo con una silla afuera ocupa
 1120 × 421,15 × 408 mm. Son medidas de la geometría, no cotas comerciales.
 
-El combo permite elegir ambas sillas guardadas o una afuera antes de abrir AR.
-Cada posición usa su propio GLB y USDZ para que la elección se conserve en
-Android y iPhone. La segunda posición se preparó a partir del OBJ del conjunto:
-los grupos `Cuerpo38` a `Cuerpo41` de la silla derecha se trasladaron 42 cm
-en X, sin modificar las otras ocho piezas. Se puede regenerar con
-`tools/modelos/generar_combo_montessori.py`. La posición se cotejó con
-`Mesa y Sillas 2.png`; no existe un OBJ original exportado en esa posición.
+El visor carga una sola escena del combo y permite sacar cada silla de forma
+independiente con el desplegable y la barra de recorrido. Cada posición se
+conserva al seleccionar la otra silla, por lo que se puede dejar ambas adentro,
+una afuera o las dos afuera. Las cuatro piezas de cada silla y sus contornos se
+mueven juntas. El recorrido de 42 cm replica la posición exterior ya revisada
+en `Mesa y Sillas 2.png`; la silla izquierda se desplaza en sentido opuesto a la
+derecha. Los modelos se regeneran desde el OBJ original con
+`tools/modelos/generar_modelos.py --producto mesa-y-2-sillas-montessori`.
 
 La comprobación con cámara física en Android y iPhone queda pendiente.
 
@@ -178,3 +179,13 @@ El visor incorpora un control conjunto para elevar ambas tapas de batea 120 mm
 en vertical, al mismo tiempo y sin girar. Los archivos de diseño originales permanecen fuera del sitio público.
 
 Los modelos del sitio público son descargables. No se incluyen F3D, DXF ni credenciales.
+
+### Movimientos y realidad aumentada
+
+Los controles de movimiento pertenecen a la vista 3D de cada producto. Al abrir
+realidad aumentada, el visor cambia a un modelo separado en la posición base; al
+volver, restaura el modelo animado y el recorrido que se estaba mostrando. Esto
+aplica a Cocina Pocket, el combo de mesa y sillas, Mesa Sensorial y Torre
+Regulable. El generador `tools/modelos/generar_modelos.py` produce esos archivos
+AR estáticos automáticamente para cualquier producto que tenga movimiento
+configurado.

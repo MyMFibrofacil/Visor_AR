@@ -22,7 +22,7 @@ export function iniciarMovimientosProducto(modelo, movimientos) {
     salida.textContent = `${Math.round(proporcion * 100)}%`;
   }
 
-  function seleccionarMovimiento() {
+  function seleccionarMovimiento(reiniciar = true) {
     movimientoActivo = movimientos.find(item => item.nombre_animacion === selector.value);
     if (!movimientoActivo || !modelo.loaded) return;
     if (!modelo.availableAnimations.includes(movimientoActivo.nombre_animacion)) {
@@ -36,7 +36,7 @@ export function iniciarMovimientosProducto(modelo, movimientos) {
     descripcion.textContent = movimientoActivo.descripcion;
     inicio.textContent = movimientoActivo.inicio;
     fin.textContent = movimientoActivo.fin;
-    barra.value = '0';
+    if (reiniciar) barra.value = '0';
     mostrarRecorrido(0);
   }
 
@@ -53,7 +53,7 @@ export function iniciarMovimientosProducto(modelo, movimientos) {
       selector.disabled = false;
       barra.disabled = false;
       selector.value = primerMovimiento.nombre_animacion;
-      seleccionarMovimiento();
+      seleccionarMovimiento(false);
     } else {
       selector.disabled = true;
       barra.disabled = true;
