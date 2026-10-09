@@ -1,5 +1,6 @@
 {
   "nombre": "Torre Mesa",
+  "codigo": "FC0003110001",
   "descripcion": "Torre Mesa de MDF con plataforma, escalón y barra superior",
   "medidas_mm": {
     "ancho": 398,
@@ -14,6 +15,7 @@
   },
   "camara": {
     "orbita": "35deg 75deg 2.1m",
+    "orbita_plantilla": "35deg 75deg 3.4m",
     "objetivo": "0m 0.453m 0m",
     "campo": "32deg",
     "minimo": "auto 10deg 1m",

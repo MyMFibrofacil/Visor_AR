@@ -5,10 +5,12 @@ ver [el procedimiento completo](PROCEDIMIENTO_PRODUCTOS_AR.md) y
 [la ficha de entrega](PLANTILLA_ENTREGA_PRODUCTO.md).
 
 1. Crear `productos/<codigo-o-nombre>/`. Usar minúsculas y guiones, sin espacios.
-2. Copiar el pequeño `index.html` de Torre Mesa: contiene la entrada al visor común.
-   Actualizar título y descripción iniciales para el producto nuevo.
+2. Copiar `index.html` de Torre Mesa: contiene la plantilla visual de producto
+   y carga los módulos compartidos del visor. Actualizar título y descripción
+   iniciales para el producto nuevo.
 3. Crear `producto.json` usando Torre Mesa como referencia. Configurar nombre,
-   descripción, medidas reales en mm, apariencia, archivos y cámara inicial.
+   código de producto, descripción, medidas reales en mm, apariencia, archivos
+   y cámara inicial.
 4. Colocar GLB, USDZ y vista previa en esa misma carpeta. Mantener escala real
    en metros, eje Y vertical y apoyo en Y=0.
 5. Agregar una entrada en `productos/catalogo.json` con carpeta, nombre, imagen,

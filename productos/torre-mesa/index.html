@@ -1,10 +1,93 @@
-<!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#142b35">
-<meta name="description" content="Explorá Torre Mesa en 3D y colocala en tu espacio con realidad aumentada.">
-<title>Torre Mesa · Ver en tu espacio</title>
-<link rel="icon" type="image/png" href="../../assets/img/logo.png">
-<link rel="stylesheet" href="../../assets/css/visor.css">
-<script type="module" src="../../assets/js/producto.js"></script>
-</head><body><main class="producto" id="producto"><p role="status">Cargando producto…</p></main></body></html>
+<!DOCTYPE html>
+<html class="dark" lang="es" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#006143", "on-primary": "#003825", "outline": "#84958a", "on-tertiary-fixed-variant": "#862208", "on-error-container": "#ffdad6", "tertiary-container": "#ffb9a8", "surface-container-low": "#1a1c20", "inverse-primary": "#006c4b", "inverse-surface": "#e2e2e8", "background": "#111317", "on-surface-variant": "#bacbbf", "surface-container": "#1e2024", "secondary-fixed": "#e5deff", "surface-container-lowest": "#0c0e12", "secondary": "#c9bfff", "surface-container-highest": "#333539", "surface-bright": "#37393e", "tertiary-fixed": "#ffdad2", "primary-fixed-dim": "#00e2a0", "secondary-fixed-dim": "#c9bfff", "outline-variant": "#3b4a42", "on-primary-fixed": "#002114", "primary-container": "#00e5a3", "on-tertiary-container": "#993015", "on-primary-fixed-variant": "#005138", "secondary-container": "#4720ca", "on-background": "#e2e2e8", "on-secondary-container": "#baaeff", "surface-tint": "#00e2a0", "on-tertiary-fixed": "#3c0700", "primary-fixed": "#43ffbb", "surface": "#111317", "on-error": "#690005", "tertiary": "#ffdfd7", "surface-dim": "#111317", "on-surface": "#e2e2e8", "surface-container-high": "#282a2e", "error": "#ffb4ab", "on-secondary-fixed": "#1a0063", "inverse-on-surface": "#2f3035", "error-container": "#93000a", "tertiary-fixed-dim": "#ffb4a2", "on-secondary": "#2e009c", "on-tertiary": "#621100", "on-secondary-fixed-variant": "#441cc8", "surface-variant": "#333539", "primary": "#6effc3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "gutter-desktop": "2rem", "margin": "1rem", "space-lg": "1.5rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "margin-desktop": "3rem", "margin-tablet": "2rem", "space-xs": "0.25rem", "space-md": "1rem" }, "fontFamily": { "button-text": ["Plus Jakarta Sans"], "headline-xl": ["Space Grotesk"], "body-sm": ["Plus Jakarta Sans"], "label-spatial": ["JetBrains Mono"], "display-hero-mobile": ["Space Grotesk"], "display-hero": ["Space Grotesk"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-spatial-sm": ["JetBrains Mono"], "headline-xl-mobile": ["Space Grotesk"], "headline-sm": ["Space Grotesk"], "headline-md": ["Space Grotesk"] }, "fontSize": { "button-text": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "label-spatial": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }], "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "label-spatial-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }], "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500" }] } } } };</script><title>Producto · Visor Realidad Aumentada</title><style>model-viewer { width: 100%; height: 100%; --poster-color: #0c0e12; }
+@media (min-width: 768px) { #ar-launch-btn { display: none; } }</style><script type="module" src="../../assets/js/producto.js"></script><link rel="icon" type="image/png" href="../../assets/img/logo.png"></head><body class="bg-surface text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Volver al catálogo" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" id="back-to-catalog"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><div class="flex items-center gap-space-sm"><img src="../../assets/img/logo.png" alt="Logo de MyM Fibrofacil" class="w-9 h-9 rounded-lg object-contain bg-white"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none font-bold">MyM Fibrofacil</span></div></div></div><div class="flex items-center gap-space-sm"></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-10">
+<!-- Interactive 3D Spatial Canvas Stage -->
+<div class="relative w-full overflow-hidden bg-surface-container-lowest flex flex-col items-center">
+<!-- Ambient Studio Lighting & Grid Overlay -->
+<div class="absolute inset-0 bg-radial from-surface-container-high/40 via-surface-container-lowest to-surface-container-lowest pointer-events-none"></div>
+<div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#6effc3_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+<!-- Live 3D / AR Viewport Container -->
+<div class="relative w-full h-80 flex items-center justify-center cursor-grab active:cursor-grabbing select-none " id="spatial-stage">
+<!-- Spatial Dimension Overlays (Dynamic 3D Pins) -->
+<div class="absolute top-6 left-5 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container/70 backdrop-blur-md shadow-sm pointer-events-none">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-spatial-sm text-label-spatial-sm text-on-surface-variant tracking-wider uppercase">Escala 1:1 en AR</span>
+</div>
+<!-- 3D Transform Object Sandbox -->
+<model-viewer id="modelo" class="w-full h-full" camera-controls="" touch-action="pan-y" ar="" ar-modes="webxr scene-viewer quick-look" ar-scale="fixed" ar-placement="floor" shadow-intensity="0.8" shadow-softness="0.8" exposure="1.1" environment-image="neutral"></model-viewer><!-- Prominent AR Floating Action CTA -->
+<div class="absolute bottom-4 inset-x-4 flex justify-center">
+<button class="w-full max-w-xs h-12 px-5 rounded-xl bg-primary text-on-primary font-button-text text-button-text flex items-center justify-center gap-2.5 shadow-xl hover:brightness-110 active:scale-95 transition-all" id="ar-launch-btn">
+<span class="material-symbols-outlined text-[20px]" style='font-variation-settings: "FILL" 1;'>view_in_ar</span>
+<span class="">Ver en mi Habitación</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Viewport Interaction Bar (Reset + Drag prompt) -->
+<div class="w-full px-margin py-3 bg-surface-container-low flex items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">pan_tool_alt</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+        Arrastrá para girar. <br>Acercá para ver detalles
+      </p>
+</div>
+<button class="shrink-0 h-8 px-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-spatial text-label-spatial flex items-center gap-1.5 transition-transform active:scale-95" id="reset-cam-btn">
+<span class="material-symbols-outlined text-[16px] text-primary">restart_alt</span>
+<span class="">Vista Inicial</span>
+</button>
+</div>
+<!-- Content Section -->
+<div class="flex flex-col px-margin pt-6 space-y-6">
+<!-- Title and Subtitle Block -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-spatial-sm text-label-spatial-sm tracking-wide uppercase">Línea Montessori</span>
+<span class="font-label-spatial-sm text-label-spatial-sm text-on-surface-variant" id="codigo-producto">• Código FC0003110001</span>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-bold tracking-tight">Torre Mesa</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-1" id="descripcion-producto">Giralo para explorar sus detalles desde todos los ángulos.</p>
+</div>
+<!-- 3-Column Dimension Grid -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-spatial text-label-spatial text-on-surface-variant uppercase tracking-wider">Dimensiones Reales</span>
+<span class="font-label-spatial-sm text-label-spatial-sm text-primary">Escala métrica 100%</span>
+</div>
+<div class="grid grid-cols-3 gap-2.5 w-full">
+<!-- Width Card -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-high shadow-md">
+<span class="font-label-spatial-sm text-label-spatial-sm text-on-surface-variant mb-1">Ancho</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold" data-medida="ancho">39,8 cm</span>
+
+</div>
+<!-- Height Card -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-high shadow-md">
+<span class="font-label-spatial-sm text-label-spatial-sm text-on-surface-variant mb-1">Alto</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold" data-medida="alto">90,6 cm</span>
+
+</div>
+<!-- Depth Card -->
+<div class="flex flex-col p-3.5 rounded-xl bg-surface-container-high shadow-md">
+<span class="font-label-spatial-sm text-label-spatial-sm text-on-surface-variant mb-1">Profundidad</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold" data-medida="profundidad">47 cm</span>
+
+</div>
+</div>
+</div>
+<!-- Material Texture Clarification Banner -->
+<div class="p-3.5 rounded-xl bg-surface-container-low flex items-start gap-3 shadow-inner">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[18px]">texture</span>
+</div>
+<div class="flex flex-col">
+
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="nota-producto">La apariencia del MDF es aproximada. Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.</p>
+</div>
+</div>
+<!-- Step-by-Step Augmented Reality Guideline Card -->
+</div>
+</div>
+</main>
+
+</body></html>
