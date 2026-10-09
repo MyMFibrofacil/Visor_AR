@@ -28,6 +28,13 @@
     "imagen": "modelo.png"
   },
   {
+    "carpeta": "cocina-pocket",
+    "nombre": "Cocina Pocket",
+    "categoria": "Infanto Juvenil",
+    "subcategoria": "Juegos de cocina",
+    "imagen": "modelo.png"
+  },
+  {
     "carpeta": "mesa-montessori",
     "nombre": "Mesa Montessori",
     "categoria": "Montessori",

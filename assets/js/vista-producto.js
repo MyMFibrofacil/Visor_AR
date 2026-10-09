@@ -14,7 +14,12 @@ export function cargarVistaProducto(config) {
     document.querySelector('#posicion-movimiento').textContent =
       `Nivel 1 de ${config.movimiento.desplazamientos_metros.length}`;
   }
-  document.querySelector('#codigo-producto').textContent = `• Código ${config.codigo}`;
+  const codigo = document.querySelector('#codigo-producto');
+  if (config.codigo) {
+    codigo.textContent = `• Código ${config.codigo}`;
+  } else {
+    codigo.hidden = true;
+  }
   document.querySelector('#nota-producto').textContent =
     `${config.apariencia} Para verlo en tu habitación, abrí esta página desde un celular compatible con realidad aumentada y usá el botón de AR.`;
   document.querySelector('#descripcion-producto').textContent =

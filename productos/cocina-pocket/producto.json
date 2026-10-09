@@ -1,0 +1,27 @@
+{
+  "nombre": "Cocina Pocket",
+  "categoria": "Infanto Juvenil",
+  "subcategoria": "Juegos de cocina",
+  "descripcion": "Cocina infantil Pocket con materiales asignados en Fusion 360.",
+  "medidas_mm": { "ancho": 600.02, "alto": 881.02, "profundidad": 353.6844 },
+  "apariencia": "Materiales del OBJ de Fusion 360 conservados por pieza; tonos MDF y pino tomados visualmente del render de Fusion.",
+  "materiales": {
+    "Tablero_MDF": { "color": [0.381, 0.223, 0.114] },
+    "Pino": { "color": [0.565, 0.342, 0.135] }
+  },
+  "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
+  "camara": {
+    "orbita": "25deg 70deg 1.8m",
+    "objetivo": "0m 0.44m 0m",
+    "campo": "35deg",
+    "minimo": "auto 10deg 0.8m",
+    "maximo": "auto 100deg 3.5m"
+  },
+  "ar_modos": "webxr quick-look",
+  "conversion": {
+    "unidad_obj_metros": 0.01,
+    "escala_ejes": [1, 1, 1],
+    "radio_borde_metros": 0.0004,
+    "angulo_borde_grados": 35
+  }
+}

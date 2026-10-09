@@ -2,8 +2,10 @@
 import hashlib
 import json
 import argparse
+from collections import Counter
 from pathlib import Path
 from leer_obj import leer_cuerpos
+from materiales import leer_materiales_mtl, resolver_materiales
 from preparar_escena import preparar_escena
 from exportar_glb import exportar_glb
 from exportar_usdz import exportar_usdz
@@ -30,15 +32,34 @@ def main():
     conversion = config['conversion']
     destino.mkdir(parents=True, exist_ok=True)
     cuerpos = leer_cuerpos(origen)
+    nombres_materiales = list(dict.fromkeys(
+        material for cuerpo in cuerpos.values() for material in cuerpo["material_por_cara"]))
+    definiciones_mtl = leer_materiales_mtl(origen)
+    materiales = resolver_materiales(nombres_materiales, definiciones_mtl,
+        config.get("materiales"), config.get("material"))
     resumen = preparar_escena(cuerpos, conversion["unidad_obj_metros"], conversion["escala_ejes"])
     escena, cantidad_bordes = agregar_bordes(cuerpos, conversion["radio_borde_metros"], conversion["angulo_borde_grados"])
     movimiento = config.get("movimiento")
-    material = config.get("material")
-    exportar_glb(escena, destino / config["archivos"]["glb"], movimiento, material)
-    exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento, material)
+    material_global = config.get("material")
+    exportar_glb(escena, destino / config["archivos"]["glb"], movimiento,
+                 material_global, materiales)
+    exportar_usdz(escena, destino / config["archivos"]["usdz"], movimiento,
+                  material_global, materiales)
+    asignaciones = {}
+    asignaciones_por_pieza = {}
+    for nombre_material in nombres_materiales:
+        asignaciones[nombre_material] = {
+            "nombre_exportado": materiales[nombre_material]["nombre"],
+            "caras": sum(cuerpo["material_por_cara"].count(nombre_material)
+                         for cuerpo in cuerpos.values()),
+        }
+    for nombre_pieza, cuerpo in cuerpos.items():
+        asignaciones_por_pieza[nombre_pieza] = dict(Counter(cuerpo["material_por_cara"]))
     resumen.update(dimensions_confirmadas_mm=config["medidas_mm"],
         cuerpos=len(cuerpos), triangulos=sum(len(c["posiciones"]) // 3 for c in cuerpos.values()),
         material=config["apariencia"],
+        materiales_obj=asignaciones,
+        materiales_por_pieza=asignaciones_por_pieza,
         segmentos_bordes=cantidad_bordes,
         triangulos_bordes=sum(len(c['posiciones']) // 3 for c in escena.values() if c.get('material') == 'bordes'),
         fuente_sha256=hashlib.sha256(origen.read_bytes()).hexdigest(),

@@ -39,7 +39,9 @@ python tools/modelos/generar_modelos.py --producto torre-mesa --obj "RUTA/Torre 
 El OBJ debe incluir normales y caras triangulares. Revisar `unidad_obj_metros`
 y `escala_ejes` para cada modelo; no aplicar automáticamente los ajustes de Torre Mesa
 al resto. Los bordes usan `radio_borde_metros` y `angulo_borde_grados`.
-No se modifican los archivos originales. La conversión actual genera apariencia MDF.
+No se modifican los archivos originales. La conversión conserva `usemtl` por cara
+y los colores `Kd` del MTL; para materiales sin color definido usa una paleta
+aproximada por nombre. Las texturas externas/UV no se convierten todavía.
 Los metadatos y modelos de salida quedan en la carpeta del producto.
 
 ## Torre Mesa
@@ -115,6 +117,20 @@ comprobados localmente. La interacción AR debe comprobarse con cámara en los
 dispositivos objetivo antes de darla por validada.
 
 Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/torre-regulable/
+
+## Cocina Pocket
+
+Se incorpora el 9 de octubre de 2026 en `productos/cocina-pocket/`. La ficha se
+clasifica en Infanto Juvenil / Juegos de cocina; no se muestra código comercial
+porque no se encontró uno confirmado. La envolvente del OBJ mide 600,02 ×
+881,02 × 353,684 mm (ancho × alto × profundidad).
+
+El modelo incluye 31 cuerpos y 58.670 triángulos. Conserva las asignaciones de
+materiales exportadas desde Fusion 360; los tonos de Tablero MDF y Pino se
+aproximaron visualmente desde el render de Fusion porque el MTL los exportó en
+negro. El visor publica GLB y USDZ, y la imagen de Fusion como portada.
+
+Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/cocina-pocket/
 
 ## Mesa, silla y combo Montessori
 

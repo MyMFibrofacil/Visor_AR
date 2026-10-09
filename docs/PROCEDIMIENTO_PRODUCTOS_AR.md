@@ -5,9 +5,9 @@ Repositorio: https://github.com/MyMFibrofacil/Visor_AR
 Catálogo: https://mymfibrofacil.github.io/Visor_AR/
 
 Este documento reúne lo realizado con Torre Mesa y el procedimiento para repetirlo.
-El flujo existente prepara productos ensamblados con apariencia MDF aproximada.
-Las variantes con texturas, otros materiales o geometrías de entrada diferentes
-requieren preparación adicional; no se convierten automáticamente con el conversor actual.
+El conversor conserva los materiales asignados por cara en el OBJ y sus colores
+difusos de MTL. Las texturas externas y sus coordenadas UV todavía requieren
+preparación adicional.
 
 ## 1. Qué hicimos con Torre Mesa
 
@@ -51,7 +51,7 @@ realizada por el asistente.
 | Formato | Para qué sirve | Prioridad y condición |
 | --- | --- | --- |
 | OBJ | Geometría de entrada al conversor actual | Preferido: producto armado, triangulado, normales y grupos por pieza; informar unidades |
-| MTL e imágenes de textura | Referencia de materiales junto al OBJ | Adjuntar si existen; el conversor actual no interpreta MTL, UV ni texturas |
+| MTL e imágenes de textura | Nombres y colores de materiales junto al OBJ | Adjuntar el MTL; sus materiales y colores difusos se conservan. Las texturas/UV no se aplican todavía |
 | F3D / F3Z | Respaldo editable de Fusion y revisión del ensamblaje | Muy útil junto al OBJ; no se convierte directamente en este flujo |
 | STEP / STP | Geometría CAD para preparar una malla en otro programa | Alternativa de respaldo; necesita conversión previa a OBJ o GLB |
 | GLB | Modelo listo para el visor | Ideal si ya está preparado, con escala real, orientación y materiales correctos; validar antes de incorporar |

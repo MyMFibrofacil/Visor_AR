@@ -1,0 +1,151 @@
+{
+  "dimensiones_modelo_mm": [
+    600.0200000000001,
+    881.0199999999999,
+    353.6844
+  ],
+  "dimensiones_originales_mm": [
+    600.0200000000001,
+    881.0199999999999,
+    353.6844
+  ],
+  "origen_original_m": [
+    -1.26102,
+    -0.429,
+    0.1738422
+  ],
+  "escala_obj_a_metros": 0.01,
+  "escala_ejes": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
+  "dimensions_confirmadas_mm": {
+    "ancho": 600.02,
+    "alto": 881.02,
+    "profundidad": 353.6844
+  },
+  "cuerpos": 31,
+  "triangulos": 58670,
+  "material": "Materiales del OBJ de Fusion 360 conservados por pieza; tonos MDF y pino tomados visualmente del render de Fusion.",
+  "materiales_obj": {
+    "Tablero_MDF": {
+      "nombre_exportado": "Tablero_MDF",
+      "caras": 37878
+    },
+    "ABS_(blanco)": {
+      "nombre_exportado": "ABS_(blanco)",
+      "caras": 17962
+    },
+    "Pino": {
+      "nombre_exportado": "Pino",
+      "caras": 638
+    },
+    "Superficie_-_Mate": {
+      "nombre_exportado": "Superficie_-_Mate",
+      "caras": 2192
+    }
+  },
+  "materiales_por_pieza": {
+    "techo alzada": {
+      "Tablero_MDF": 668
+    },
+    "Lateral 1": {
+      "Tablero_MDF": 3858
+    },
+    "Lateral 2": {
+      "Tablero_MDF": 3270
+    },
+    "base alzada": {
+      "Tablero_MDF": 668
+    },
+    "piso": {
+      "Tablero_MDF": 1396
+    },
+    "Parante bajo": {
+      "Tablero_MDF": 866
+    },
+    "Tapa": {
+      "Tablero_MDF": 2756
+    },
+    "parante alzada": {
+      "Tablero_MDF": 420
+    },
+    "frente perillas": {
+      "Tablero_MDF": 364
+    },
+    "zocalo": {
+      "Tablero_MDF": 60
+    },
+    "estante horno": {
+      "Tablero_MDF": 516
+    },
+    "estante liso": {
+      "Tablero_MDF": 60
+    },
+    "pta alzada": {
+      "Tablero_MDF": 244
+    },
+    "Pta ciega": {
+      "Tablero_MDF": 500
+    },
+    "Pta Horno": {
+      "Tablero_MDF": 532
+    },
+    "Canilla": {
+      "Tablero_MDF": 734
+    },
+    "Grifo": {
+      "Tablero_MDF": 3548
+    },
+    "perillas": {
+      "Tablero_MDF": 1082
+    },
+    "Canilla (1)": {
+      "Tablero_MDF": 734
+    },
+    "perillas 2": {
+      "Tablero_MDF": 1082
+    },
+    "perillas 3": {
+      "Tablero_MDF": 1082
+    },
+    "hornalla": {
+      "Tablero_MDF": 1522
+    },
+    "hornalla (1)": {
+      "Tablero_MDF": 1522
+    },
+    "hornalla (1) (1)": {
+      "Tablero_MDF": 1522
+    },
+    "Fondo bajo": {
+      "Tablero_MDF": 1520
+    },
+    "frente pta alzada": {
+      "Tablero_MDF": 7024
+    },
+    "fondo alzada": {
+      "ABS_(blanco)": 17962
+    },
+    "tirador": {
+      "Pino": 638
+    },
+    "manija 1": {
+      "Tablero_MDF": 164
+    },
+    "manija 2": {
+      "Tablero_MDF": 164
+    },
+    "bacha": {
+      "Superficie_-_Mate": 2192
+    }
+  },
+  "segmentos_bordes": 22193,
+  "triangulos_bordes": 266316,
+  "fuente_sha256": "7d57dceb5e00a3c83e57a96b4c27dd6ba57ae32ff17d636a38b7a5549055f936",
+  "grupo_movil": null,
+  "niveles_movimiento": 0,
+  "validacion_celular": "Pendiente"
+}
