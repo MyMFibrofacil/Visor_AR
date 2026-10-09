@@ -5,14 +5,17 @@ Sitio estático independiente, publicado en GitHub Pages. No requiere ChatGPT.
 ## Organización
 
 ```text
+index.html            Pantalla de inicio (escritorio y móvil)
+pantallas/
+  producto.html       Pantalla de producto compartida
+datos/
+  catalogo.json       Lista de productos publicados
 assets/
   img/logo.png         Marca compartida
   js/                  Vistas, controles, catálogo y utilidades compartidas
   vendor/              model-viewer 4.1.0 y su licencia
 productos/
-  catalogo.json        Lista de productos publicados
   torre-mesa/
-    index.html         Entrada de la página
     producto.json      Nombre, medidas, cámara, archivos y conversión
     modelo.glb         Modelo web y Android
     modelo.usdz        Modelo iPhone/iPad
@@ -40,8 +43,10 @@ npm run dev
 npm run build
 ```
 
-El servidor local abre en http://127.0.0.1:8767. La publicación incluye solamente
-`index.html`, `assets/` y `productos/`.
+El servidor local abre en http://127.0.0.1:8767. La publicación incluye
+`index.html`, `assets/`, `datos/` y los productos listados en el catálogo.
+La generación copia `pantallas/producto.html` como `index.html` dentro de cada
+producto publicado, sin duplicar esa pantalla en las carpetas de origen.
 El flujo de GitHub Pages se ejecuta al enviar cambios a `main`.
 
 Torre Mesa muestra el código `FC0003110001`, obtenido de `Productos Chatbot`

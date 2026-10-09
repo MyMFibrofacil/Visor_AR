@@ -184,12 +184,12 @@ de cada dispositivo.
 ```text
 Visor_AR/
 ├── index.html                  Catálogo
+├── pantallas/producto.html     Pantalla común de producto
+├── datos/catalogo.json        Lista de productos publicados
 ├── assets/                     Código, estilos, logo y biblioteca comunes
 ├── productos/
-│   ├── catalogo.json            Lista de productos
 │   ├── torre-mesa/
 │   └── <codigo-del-producto>/
-│       ├── index.html           Entrada al visor compartido
 │       ├── producto.json        Datos y configuración
 │       ├── modelo.glb
 │       ├── modelo.usdz
@@ -204,13 +204,14 @@ Visor_AR/
 2. Crear `productos/<codigo-del-producto>/` usando minúsculas y guiones sin espacios.
    Usar un código estable facilita renombrar el producto comercial sin cambiar el enlace.
    Cada variante con geometría propia necesita su carpeta; todavía no hay selector de variantes.
-3. Copiar únicamente la entrada `index.html` de Torre Mesa y ajustar título y descripción.
+3. Usar `pantallas/producto.html` como pantalla común. La generación la incorpora
+   al sitio publicado para cada producto del catálogo; no copiarla a esta carpeta.
 4. Crear `producto.json` con nombre, descripción accesible, medidas, nota de apariencia,
    nombres de archivos, cámara y parámetros de conversión cuando se use OBJ.
    No copiar la cámara ni la escala de Torre Mesa sin revisarlas.
 5. Incorporar los modelos y el poster. El poster es una imagen estática que se ve
    mientras carga el modelo; debe representar la misma versión del producto.
-6. Agregar una entrada en `productos/catalogo.json` con carpeta, nombre e imagen.
+6. Agregar una entrada en `datos/catalogo.json` con carpeta, nombre e imagen.
 7. Revisar el nuevo producto y al menos Torre Mesa para detectar regresiones.
 8. Publicar y comprobar la URL final.
 

@@ -4,7 +4,7 @@ import { prepararCatalogo } from './vista-catalogo.js';
 import { iniciarInteraccionesCatalogo } from './interacciones-catalogo.js';
 
 try {
-  const productos = await leerJson(new URL('../../productos/catalogo.json', import.meta.url));
+  const productos = await leerJson(new URL('../../datos/catalogo.json', import.meta.url));
   for (const raiz of document.querySelectorAll('.catalog-variant')) {
     prepararCatalogo(raiz, productos);
     iniciarInteraccionesCatalogo(raiz, productos);

@@ -5,15 +5,14 @@ ver [el procedimiento completo](PROCEDIMIENTO_PRODUCTOS_AR.md) y
 [la ficha de entrega](PLANTILLA_ENTREGA_PRODUCTO.md).
 
 1. Crear `productos/<codigo-o-nombre>/`. Usar minúsculas y guiones, sin espacios.
-2. Copiar `index.html` de Torre Mesa: contiene la plantilla visual de producto
-   y carga los módulos compartidos del visor. Actualizar título y descripción
-   iniciales para el producto nuevo.
+2. Usar la pantalla común `pantallas/producto.html`; el proceso de publicación
+   la incorpora automáticamente a la carpeta del producto en el sitio generado.
 3. Crear `producto.json` usando Torre Mesa como referencia. Configurar nombre,
    código de producto, descripción, medidas reales en mm, apariencia, archivos
    y cámara inicial.
 4. Colocar GLB, USDZ y vista previa en esa misma carpeta. Mantener escala real
    en metros, eje Y vertical y apoyo en Y=0.
-5. Agregar una entrada en `productos/catalogo.json` con carpeta, nombre, imagen,
+5. Agregar una entrada en `datos/catalogo.json` con carpeta, nombre, imagen,
    categoría (`categoria`) y subcategoría (`subcategoria`) tomadas de la planilla
    de productos. Incluir solamente productos con modelos AR disponibles.
    El catálogo genera sus filtros a partir de estas entradas; los campos de
@@ -22,8 +21,9 @@ ver [el procedimiento completo](PROCEDIMIENTO_PRODUCTOS_AR.md) y
    Probar AR con cámara en Android e iPhone compatibles antes de darlo por validado.
 7. Enviar los cambios a `main` y verificar la publicación de GitHub Pages.
 
-No copiar JavaScript, CSS, biblioteca ni logo a cada producto. Se comparten desde
-`assets/`. Los nombres de archivos se resuelven relativos a la página de cada producto.
+No copiar la pantalla, JavaScript, biblioteca ni logo a cada producto. Se comparten
+desde `pantallas/` y `assets/`. Los nombres de modelos e imágenes se resuelven
+relativos a la página de cada producto.
 Las medidas visibles se redondean, conservando los valores precisos en configuración.
 
 ## Conversión opcional desde OBJ
