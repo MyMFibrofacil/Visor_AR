@@ -97,8 +97,8 @@ Enlace: https://mymfibrofacil.github.io/Visor_AR/productos/biblioteca-montessori
 
 Incorporada el 9 de octubre de 2026 en `productos/torre-regulable/`, código
 `FC0003110002`. Identidad y clasificación leídas de Productos Chatbot,
-Hoja 1, fila 70: Montessori / Torres; el material real es pino, según
-confirmación del usuario. La planilla registra
+Hoja 1, fila 70: Montessori / Torres. La estructura es de MDF; únicamente
+el palo superior de 380 mm es de pino, según corrección del usuario. La planilla registra
 42 × 91 × 40 cm; se usan las dimensiones verificadas del modelo: 39,8 × 88 ×
 43,421 cm (ancho × alto × profundidad).
 
@@ -108,8 +108,9 @@ posiciones mediante un control con pasos. GLB contiene una animación de
 traslación vertical que mueve únicamente ese grupo; USDZ contiene la animación
 para Quick Look. En Android se habilita WebXR para conservar el control durante
 la sesión AR; en iPhone Quick Look ofrece su control nativo de animación.
-Escala original, sin deformación. Material configurado como pino natural con
-tono aproximado, y contornos negros de radio 0,55 mm.
+Escala original, sin deformación. El OBJ conserva la asignación de MDF a la
+estructura y pino al palo superior; el visor usa tonos aproximados diferenciados
+y contornos negros de radio 0,55 mm.
 
 Verificación: GLB sin errores ni advertencias de Khronos; USDZ sin errores con
 validadores OpenUSD. Movimiento, cinco niveles, visor móvil y productos previos

@@ -5,8 +5,11 @@
   "subcategoria": "Torres",
   "descripcion": "Torre de aprendizaje Montessori regulable con plataforma móvil de cinco niveles",
   "medidas_mm": { "ancho": 398, "alto": 880, "profundidad": 434.21 },
-  "apariencia": "Pino natural. El tono del modelo es aproximado.",
-  "material": { "nombre": "Pino natural", "color": [0.40, 0.23, 0.12], "roughness": 0.88 },
+  "apariencia": "Estructura de MDF; solo el palo superior de 380 mm es de pino. Los tonos del modelo son aproximados.",
+  "materiales": {
+    "Tablero_MDF": { "nombre": "MDF", "color": [0.52, 0.34, 0.18], "roughness": 0.88 },
+    "Pino": { "nombre": "Pino natural (palo superior de 380 mm)", "color": [0.67, 0.43, 0.19], "roughness": 0.88 }
+  },
   "archivos": { "glb": "modelo.glb", "usdz": "modelo.usdz", "poster": "modelo.png" },
   "camara": {
     "orbita": "35deg 70deg 2m",

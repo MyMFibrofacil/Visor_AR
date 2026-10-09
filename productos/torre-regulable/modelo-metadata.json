@@ -20,6 +20,7 @@
     1.0,
     1.0
   ],
+  "rotacion_y_grados": 0,
   "geometria": "Cuerpos conservados; escala por ejes según configuración del producto. Salientes incluidas.",
   "dimensions_confirmadas_mm": {
     "ancho": 398,
@@ -28,11 +29,43 @@
   },
   "cuerpos": 6,
   "triangulos": 14388,
-  "material": "Pino natural. El tono del modelo es aproximado.",
+  "material": "Estructura de MDF; solo el palo superior de 380 mm es de pino. Los tonos del modelo son aproximados.",
+  "materiales_obj": {
+    "Tablero_MDF": {
+      "nombre_exportado": "MDF",
+      "caras": 14104
+    },
+    "Pino": {
+      "nombre_exportado": "Pino natural (palo superior de 380 mm)",
+      "caras": 284
+    }
+  },
+  "materiales_por_normal": {},
+  "materiales_por_pieza": {
+    "Cuerpo28": {
+      "Tablero_MDF": 76
+    },
+    "Cuerpo29": {
+      "Tablero_MDF": 6856
+    },
+    "Cuerpo30": {
+      "Tablero_MDF": 6848
+    },
+    "Cuerpo31": {
+      "Tablero_MDF": 96
+    },
+    "Cuerpo32": {
+      "Tablero_MDF": 228
+    },
+    "Cuerpo33": {
+      "Pino": 284
+    }
+  },
   "segmentos_bordes": 6194,
   "triangulos_bordes": 74328,
   "fuente_sha256": "afdbfc9aa6543eb994f69335260825b79e5a0ac3efee541e9aee9a4f0b01d5c8",
   "grupo_movil": "Cuerpo28",
   "niveles_movimiento": 5,
+  "animaciones": [],
   "validacion_celular": "Pendiente"
 }
