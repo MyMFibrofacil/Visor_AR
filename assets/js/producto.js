@@ -1,6 +1,6 @@
 /** Entrada de cada página de producto: carga configuración e inicia el visor. */
 import '../vendor/model-viewer.min.js';
-import { cargarVistaProducto } from './vista-producto.js?v=20261009-scroll-fix';
+import { cargarVistaProducto } from './vista-producto.js?v=20261009-mobile-stack';
 import { iniciarControles } from './controles-visor.js';
 import { leerJson } from './shared/archivos.js';
 import { iniciarMovimientoProducto } from './movimiento-producto.js';

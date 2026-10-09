@@ -5,6 +5,31 @@ export function cargarVistaProducto(config) {
   const tieneMovimiento = Boolean(config.movimiento || config.movimientos?.length || config.movimiento_sillas);
   document.body.classList.toggle('tiene-movimiento', tieneMovimiento);
   document.documentElement.classList.toggle('pagina-con-movimiento', tieneMovimiento);
+  const controlesMovimiento = config.movimiento_sillas
+    ? [document.querySelector('#control-movimiento-sillas')]
+    : tieneMovimiento ? [document.querySelector('#control-movimiento')] : [];
+  const panelMovimiento = document.querySelector('#panel-control-movil');
+  if (controlesMovimiento.length && panelMovimiento) {
+    const marcadores = controlesMovimiento.map(control => {
+      const marcador = document.createComment('posición original del control de movimiento');
+      control.parentNode.insertBefore(marcador, control);
+      return { control, marcador };
+    });
+    const consultaMovil = window.matchMedia('(max-width: 767px)');
+    function ubicarControlesMovimiento() {
+      if (consultaMovil.matches) {
+        panelMovimiento.classList.add('activo');
+        for (const { control } of marcadores) panelMovimiento.append(control);
+      } else {
+        panelMovimiento.classList.remove('activo');
+        for (const { control, marcador } of marcadores) {
+          marcador.parentNode.insertBefore(control, marcador.nextSibling);
+        }
+      }
+    }
+    consultaMovil.addEventListener('change', ubicarControlesMovimiento);
+    ubicarControlesMovimiento();
+  }
   const modelo = document.querySelector('#modelo');
   const titulo = document.querySelector('h1');
   titulo.textContent = config.nombre;
@@ -41,6 +66,8 @@ export function cargarVistaProducto(config) {
   document.querySelector('#descripcion-producto').textContent =
     'Giralo para explorar sus detalles desde todos los ángulos.';
   mostrarMedidas(config.medidas_mm);
+  document.querySelector('[data-medida="ancho"]')
+    ?.closest('.flex.flex-col.gap-2')?.classList.add('product-dimensions');
   modelo.setAttribute('alt', config.descripcion);
   modelo.setAttribute('poster', new URL(config.archivos.poster, location.href).href);
   if (config.movimiento_sillas) {
